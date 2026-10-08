@@ -1,21 +1,50 @@
 # 简体中文汉化说明 / Simplified Chinese Translation
 
-本仓库是 [`rakanki911/DLSS5-Swapper`](https://github.com/rakanki911/DLSS5-Swapper) 的**简体中文汉化分支**，上游版本 v2.2.9。
+本仓库是 [`rakanki911/DLSS5-Swapper`](https://github.com/rakanki911/DLSS5-Swapper) 的**简体中文独立维护版**，基于上游 v2.2.9。
 
 上游项目以 MIT 协议开源，作者为 **Rakan Alkhaldi**。本仓库仅翻译界面文案，不改动任何功能逻辑。
 
+>本仓库是**独立仓库**（非 fork），因此不受上游仓库删除或转移的影响。
+> 上游地址：https://github.com/rakanki911/DLSS5-Swapper
+
 ---
 
-## 为什么需要这个分支
+## 同步上游
+
+本仓库保留完整的上游 git 历史，`baseline-v2.2.9` 标签标记了本次汉化所基于的上游提交。
+
+```bash
+# 添加上游（首次）
+git remote add upstream https://github.com/rakanki911/DLSS5-Swapper.git
+
+# 拉取上游新版本
+git fetch upstream
+
+# 查看上游是否有新提交
+git log --oneline HEAD..upstream/main
+
+# 将汉化改动移植到新版本（推荐 rebase，保持线性历史）
+git rebase upstream/main
+
+# 若上游改动了汉化文件，需手动解决冲突，然后：
+npm run test
+```
+
+>若上游某次发布引入了大量改动，也可选择 `git rebase --skip` 放弃该版本，
+> 等下个版本再重新移植。日常只需跟随上游同步，无需做其他操作。
+
+---
+
+## 为什么需要这个仓库
 
 上游 v2.2.9 虽然在语言列表里已经登记了 `zh`（简体中文），但该语言包**基本是空的**——实测覆盖率仅 **16.5%**（170 个英文键中只翻了 28 个）。用户实际使用时会看到大量英文甚至直接回退。
 
-本分支把 `zh` 语言包补全到 **100% 覆盖**，因此把语言从"名义上支持"变成"真正可用"。
+本仓库把 `zh` 语言包补全到 **100% 覆盖**，因此把语言从"名义上支持"变成"真正可用"。
 
-|版本 | 英文键数 | 已翻译中文键数 | 覆盖率 |
+| 版本 | 英文键数 | 已翻译中文键数 | 覆盖率 |
 |---|---|---|---|
 |上游 v2.2.9 | 170 | 28 | 16.5% |
-| **本分支** | 173 | 271 | **100%** |
+| **本仓库** | 173 | 271 | **100%** |
 
 > 说明：中文字符数多于英文键数，是因为部分英文键为模板函数（如 `artFound: (a, b) => ...`），在中文中同样需要多个条目；另有部分键仅在特定版本新增。
 
@@ -99,7 +128,7 @@ const assertLocalized = (haystack, key) => {
 | dgVoodoo2 | 作者自有许可（运行时下载） |
 | NVIDIA Streamline / DLSS | NVIDIA 专有许可，**不随本仓库分发** |
 
-本分支未新增任何第三方代码，仅翻译既有文案。
+本仓库未新增任何第三方代码，仅翻译既有文案。
 
 ## 免责声明
 

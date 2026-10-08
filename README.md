@@ -134,7 +134,7 @@ Compatibility varies by renderer and game. Xenia HUD correction remains experime
 
 **Arabic, Persian and Urdu support right-to-left layout.**
 
-> **简体中文用户注意**：本仓库是 v2.2.9 的简体中文汉化分支。上游的中文语言包实测覆盖率仅 16.5%（界面大量回退为英文），本分支将其补全至 100%。改动说明与许可归属详见 [TRANSLATION.zh-CN.md](TRANSLATION.zh-CN.md)。
+> **简体中文用户注意**：本仓库是独立维护的 v2.2.9 简体中文汉化版（非 fork，不受上游仓库变动影响）。上游的中文语言包实测覆盖率仅 16.5%（界面大量回退为英文），本仓库将其补全至 100%。改动说明、上游同步方式与许可归属详见 [TRANSLATION.zh-CN.md](TRANSLATION.zh-CN.md)。
 
 ## Screenshots
 
