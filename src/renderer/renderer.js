@@ -10,6 +10,9 @@ const gameFilters = window.gameFilters;
 
 const ORDER = ['Steam', 'Epic Games', 'GOG', 'Xbox', 'Ubisoft', 'Added by hand', 'My folders'];
 const rank = (l) => (ORDER.indexOf(l) === -1 ? ORDER.length : ORDER.indexOf(l));
+// 分组标题只在显示时本地化；数据源与排序键保持原值，避免影响分组逻辑。
+const LAUNCHER_ZH = { 'Added by hand': '手动添加', 'My folders': '我的文件夹' };
+const launcherLabel = (l) => (getLang().toLowerCase().startsWith('zh') && LAUNCHER_ZH[l]) ? LAUNCHER_ZH[l] : l;
 const short = (v) => (v ? String(v).replace(/\.0$/, '') : null);
 const initials = (name) =>
   name.replace(/[^A-Za-z0-9 ]/g, '').split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0].toUpperCase()).join('') || '?';
@@ -262,7 +265,7 @@ function renderGames() {
       if (launcher === null) return `<div class="grid">${list.map(cardMarkup).join('')}</div>`;
       const ready = list.filter(gameFilters.canInstall).length;
       return `<section class="group">
-        <div class="group-head"><h4>${esc(launcher)}</h4><span class="count">${list.length}</span>
+        <div class="group-head"><h4>${esc(launcherLabel(launcher))}</h4><span class="count">${list.length}</span>
         <button type="button" class="ready filter-chip" data-ready-filter="${esc(launcher)}" aria-pressed="${filters.dlss === 'ready'}">${t('readyFor', ready)}</button></div>
         <div class="grid">${list.map(cardMarkup).join('')}</div>
       </section>`;
@@ -1582,6 +1585,11 @@ document.addEventListener('drop', (e) => e.preventDefault());
   state.rail = boot.rail === 'on' ? 'on' : 'off';
   syncSkinChrome();
   applyLang(boot.lang || 'en');
+  // The tray lives in the main process, which has no translations of its own.
+  // Push the labels on startup too, not just on a language change: a session
+  // that boots straight into a saved non-English language would otherwise keep
+  // the English defaults until the user switched languages by hand.
+  window.lab.setTrayLabels({ show: t('trayShow'), quit: t('trayQuit') });
   $('statusVersion').textContent = `v${boot.version}`;
   // Nothing this app installs is on disk. Saying so now beats letting somebody
   // pick a game, choose a route and press Install before finding out (#220).

@@ -134,6 +134,8 @@ Compatibility varies by renderer and game. Xenia HUD correction remains experime
 
 **Arabic, Persian and Urdu support right-to-left layout.**
 
+> **简体中文用户注意**：本仓库是 v2.2.9 的简体中文汉化分支。上游的中文语言包实测覆盖率仅 16.5%（界面大量回退为英文），本分支将其补全至 100%。改动说明与许可归属详见 [TRANSLATION.zh-CN.md](TRANSLATION.zh-CN.md)。
+
 ## Screenshots
 
 <p><img src="https://raw.githubusercontent.com/rakanki911/DLSS5-Swapper/7415065e5c5437441d0e0b0a0362d0ada6d86e15/docs/screenshots/02-games.png" alt="Games" width="100%"></p>

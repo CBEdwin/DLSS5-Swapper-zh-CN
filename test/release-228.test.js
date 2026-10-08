@@ -11,6 +11,21 @@ const { writePe } = require('./fixtures/pe');
 const root = path.join(__dirname, '..');
 const read = (...parts) => fs.readFileSync(path.join(root, ...parts), 'utf8');
 
+// Locales that carry a full translation of the app's own strings. Guard
+// assertions compare a key's occurrence count against this instead of a
+// literal, so adding a language does not silently turn every one of them red.
+const FULLY_TRANSLATED = ['en', 'ar', 'zh'];
+const assertLocalized = (haystack, key) => {
+  const count = (haystack.match(new RegExp(`${key}: `, 'g')) || []).length;
+  assert.equal(count, FULLY_TRANSLATED.length,
+    `${key} in ${FULLY_TRANSLATED.join(', ')}`);
+};
+const assertLocalizedFn = (haystack, key) => {
+  const count = (haystack.match(new RegExp(`${key}: \\(`, 'g')) || []).length;
+  assert.equal(count, FULLY_TRANSLATED.length,
+    `${key} in ${FULLY_TRANSLATED.join(', ')}`);
+};
+
 const temp = (t) => {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'swapper-228-'));
   t.after(() => fs.rmSync(dir, { recursive: true, force: true }));
@@ -119,8 +134,8 @@ test('the overlay says which reason applies instead of blaming the route (#338)'
   assert.doesNotMatch(main, /the panel does not attach on/);
   assert.match(main, /const why = target\.bitness !== 64 \? 'bits' : route === 'renodx' \? 'multipass' : route === 'optiscaler' \? 'optiscaler' : 'api';/);
   const i18n = read('src', 'renderer', 'i18n.js');
-  assert.equal((i18n.match(/overlayNotForRoute: \(why, api\) =>/g) || []).length, 2, 'in English and Arabic');
-  assert.equal((i18n.match(/multipassNext: \(dlss\) =>/g) || []).length, 2, 'in English and Arabic');
+  assertLocalizedFn(i18n, 'overlayNotForRoute');
+  assertLocalizedFn(i18n, 'multipassNext');
   assert.match(read('src', 'renderer', 'renderer.js'), /'overlayNotForRoute', 'multipassNext'/);
 });
 
@@ -128,7 +143,7 @@ test('the card and My comments banners say "Show all reports"', () => {
   const page = read('src', 'renderer', 'community.js');
   assert.match(page, /id="communityGpuClear">\$\{esc\(text\(\)\.showAllReports\)\}/);
   assert.match(page, /id="communityMineClear">\$\{esc\(text\(\)\.showAllReports\)\}/);
-  assert.equal((page.match(/showAllReports: '/g) || []).length, 2, 'in English and Arabic');
+  assertLocalized(page, 'showAllReports');
 });
 
 test('every report inside a card names its DirectX version (#337)', () => {
@@ -172,9 +187,9 @@ test('d3d11.dll is for DirectX 11 only (#328)', () => {
   assert.match(read('preload.js'), /setReshadeProxy: \(dir, exePath, value\) => ipcRenderer\.invoke\('set-reshade-proxy'/);
   assert.match(read('src', 'core', 'backend-manager.js'), /reshadeFileChanged\(old, config\)\);/);
   const i18n = read('src', 'renderer', 'i18n.js');
-  assert.equal((i18n.match(/reshadeProxyHint: '/g) || []).length, 2, 'in English and Arabic');
-  assert.equal((i18n.match(/reshadeProxyWrapHint: '/g) || []).length, 2, 'in English and Arabic');
-  assert.equal((i18n.match(/fReshadeFile: '/g) || []).length, 2, 'in English and Arabic');
+  assertLocalized(i18n, 'reshadeProxyHint');
+  assertLocalized(i18n, 'reshadeProxyWrapHint');
+  assertLocalized(i18n, 'fReshadeFile');
 });
 
 test('a slow download is retried before it is called a network failure (#370, #373)', async () => {
@@ -256,7 +271,7 @@ test('a safe graphics mode for windows that flicker (#365)', () => {
   assert.match(renderer, /id="setSafeGraphics"/);
   assert.match(renderer, /\$\('setSafeGraphics'\)\.onclick = async \(\) => \{/);
   const i18n = read('src', 'renderer', 'i18n.js');
-  assert.equal((i18n.match(/setSafeGraphicsHint: '/g) || []).length, 2, 'in English and Arabic');
+  assertLocalized(i18n, 'setSafeGraphicsHint');
 });
 
 test('theme 2 is a skin of its own, and cannot leak into theme 1', () => {
@@ -293,7 +308,7 @@ test('theme 2 is a skin of its own, and cannot leak into theme 1', () => {
   assert.match(renderer, /const modernSheet = state\.skin === 'two' && window\.theme2;/);
   const i18n = read('src', 'renderer', 'i18n.js');
   for (const key of ['setSkins', 'skinOne', 'skinTwo', 't2Play', 't2Setup', 't2Search']) {
-    assert.equal(i18n.split(key + ": '").length - 1, 2, `${key} in English and Arabic`);
+    assertLocalized(i18n, key);
   }
 });
 

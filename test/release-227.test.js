@@ -9,6 +9,16 @@ const path = require('node:path');
 const root = path.join(__dirname, '..');
 const read = (...parts) => fs.readFileSync(path.join(root, ...parts), 'utf8');
 
+// Locales that carry a full translation of the app's own strings. Guard
+// assertions compare a key's occurrence count against this instead of a
+// literal, so adding a language does not silently turn every one of them red.
+const FULLY_TRANSLATED = ['en', 'ar', 'zh'];
+const assertLocalized = (haystack, key) => {
+  const count = (haystack.match(new RegExp(`${key}: `, 'g')) || []).length;
+  assert.equal(count, FULLY_TRANSLATED.length,
+    `${key} in ${FULLY_TRANSLATED.join(', ')}`);
+};
+
 test('DirectDraw gets dgVoodoo the way DX8 and DX9 do (#292, #279, #150)', () => {
   assert.match(read('main.js'),
     /if \(api === 'd3d8' \|\| api === 'd3d9' \|\| api === 'ddraw'\) \{\s*try \{\s*p\.source\.feeder\.dgVoodooDir = await ensureDgVoodoo/);
@@ -29,7 +39,7 @@ test('the driver warning says "may", because it is a warning (#300, #278, #270)'
 test('a game folder Windows will not let us write to is refused in words, up front (#301)', () => {
   assert.match(read('src', 'core', 'backend-manager.js'),
     /if \(!core\.canWrite\(config\.gameDir\)\) throw Object\.assign\(new Error\('errNoWriteAccess'\), \{ code: 'errNoWriteAccess' \}\);/);
-  assert.equal((read('src', 'renderer', 'i18n.js').match(/errNoWriteAccess: '/g) || []).length, 2, 'in English and Arabic');
+  assertLocalized(read('src', 'renderer', 'i18n.js'), 'errNoWriteAccess');
 });
 
 test('every installed game has its read-only ReShade.ini cleared once per start (#155)', () => {
@@ -87,7 +97,7 @@ test('the game sheet shows what the community found, before installing', () => {
   assert.match(renderer, /<div class="sheet-community" id="sheetCommunity" hidden><\/div>/);
   assert.match(renderer, /queueMicrotask\(\(\) => fillSheetCommunity\(g, dir\)\);/);
   assert.match(read('main.js'), /ipcMain\.handle\('community-for-game'/);
-  assert.equal((read('src', 'renderer', 'i18n.js').match(/sheetCommunityTitle: '/g) || []).length, 2, 'in English and Arabic');
+  assertLocalized(read('src', 'renderer', 'i18n.js'), 'sheetCommunityTitle');
 });
 
 // Somebody names you in the chat, answers you there, or likes what you wrote:
@@ -101,7 +111,7 @@ test('reactions and chat reach you as notifications', () => {
     assert.match(page, new RegExp(`notice\\.kind === '${kind}'`), kind);
   }
   for (const key of ['noticeReacted', 'noticeChatMention', 'noticeChatReply', 'noticeChatReaction']) {
-    assert.equal((page.match(new RegExp(`${key}: `, 'g')) || []).length, 2, `${key} in English and Arabic`);
+    assertLocalized(page, key);
   }
   assert.match(page, /if \(notice\?\.chat\) \{\s*document\.querySelector\('\[data-view="chat"\]'\)\?\.click\(\);\s*await window\.chatUi\?\.focusMessage\?\.\(notice\.chat\);/);
   assert.match(read('src', 'renderer', 'chat.js'), /window\.chatUi = \{ render, stopPolling, applyLanguage, focusMessage \};/);

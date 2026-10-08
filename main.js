@@ -456,7 +456,7 @@ app.whenReady().then(async () => {
   if (loadState().closeToTray !== false) ensureTray();
   if (communityUsed()) startNotices();
   try {
-    overlayBridge = await require('./src/overlay-bridge')({ BrowserWindow, userData: app.getPath('userData') });
+    overlayBridge = await require('./src/overlay-bridge')({ BrowserWindow, userData: app.getPath('userData'), getLang: () => loadState().lang });
     if (quitting) overlayBridge.close();
   } catch (error) {
     if (!quitting) console.error('Overlay bridge:', error.message);
@@ -505,6 +505,8 @@ ipcMain.handle('set-lang', (_event, lang) => {
   const state = loadState();
   state.lang = lang;
   saveState(state);
+  // 游戏内面板是独立的 offscreen 文档，语言切换后需要主动同步。
+  overlayBridge?.syncLang?.();
   return lang;
 });
 
