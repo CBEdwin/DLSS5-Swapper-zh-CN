@@ -9,29 +9,56 @@
 
 ---
 
-## 同步上游
+## 与上游的关系
 
-本仓库保留完整的上游 git 历史，`baseline-v2.2.9` 标签标记了本次汉化所基于的上游提交。
+| 仓库 | 用途 |
+|---|---|
+| **`CBEdwin/DLSS5-Swapper-zh-CN`**（本仓库，独立） | 长期维护、发布、给用户下载 |
+| `CBEdwin/DLSS5-Swapper`（fork） | 仅用于向[上游](https://github.com/rakanki911/DLSS5-Swapper)提交 PR：[PR #436](https://github.com/rakanki911/DLSS5-Swapper/pull/436) |
+
+本仓库是**独立仓库**（非fork），因此不受上游仓库删除或转移的影响。
+上游地址：https://github.com/rakanki911/DLSS5-Swapper
+
+> **为何贡献上游要另用 fork**：GitHub 生成 PR diff 需要两个分支存在**共同祖先**。
+> 非fork 的独立仓库不含上游的 git 对象，无法与上游建立共同祖先，
+> 因此 `POST /pulls` 会返回 `No commits between rakanki911:main and CBEdwin:main`。
+> 故保留一个 fork 专供提 PR 用，本仓库不承担该职责。
+
+## 同步上游新版本
+
+由于本仓库不保留上游 git 历史（首个提交是导入 v2.2.9 文件树的根提交），
+**不能用 `git rebase` 同步**。推荐做法：
 
 ```bash
-# 添加上游（首次）
-git remote add upstream https://github.com/rakanki911/DLSS5-Swapper.git
+# 1. 获取上游最新版
+git clone https://github.com/rakanki911/DLSS5-Swapper.git
+cd DLSS5-Swapper && git checkout v2.2.X        # 或最新 tag
 
-# 拉取上游新版本
-git fetch upstream
+# 2. 把本仓库的汉化文件覆盖过去
+cp /path/to/dlss5-zh-cn/src/renderer/i18n.js        src/renderer/
+cp /path/to/dlss5-zh-cn/src/shared/feature-i18n.js   src/shared/
+cp /path/to/dlss5-zh-cn/src/renderer/index.html      src/renderer/
+# 其余改动文件同理，见下方「改动文件」表
 
-# 查看上游是否有新提交
-git log --oneline HEAD..upstream/main
+# 3. 校验（关键：新增语种后测试断言需同步更新）
+npm test
 
-# 将汉化改动移植到新版本（推荐 rebase，保持线性历史）
-git rebase upstream/main
-
-# 若上游改动了汉化文件，需手动解决冲突，然后：
-npm run test
+# 4. 提交并推回本仓库
 ```
 
->若上游某次发布引入了大量改动，也可选择 `git rebase --skip` 放弃该版本，
-> 等下个版本再重新移植。日常只需跟随上游同步，无需做其他操作。
+### 校验汉化完整性
+
+新增语种或上游改动 i18n 结构后，用这段脚本核对 `zh` 覆盖率：
+
+```bash
+node -e "
+const fs=require('fs'),s=fs.readFileSync('src/renderer/i18n.js','utf8');
+const block=(l)=>{const m=s.match(new RegExp('^  '+l+': \\\\{\\\\n([\\\\s\\\\S]*?)^  \\\\}','m'));
+  return m?new Set([...m[1].matchAll(/^    ([a-zA-Z][a-zA-Z0-9]*):/gm)].map(x=>x[1])):new Set()};
+const en=block('en'),zh=block('zh');
+console.log('en='+en.size,'zh='+zh.size,'覆盖='+(100*[...en].filter(k=>zh.has(k)).length/en.size).toFixed(1)+'%');
+"
+```
 
 ---
 
