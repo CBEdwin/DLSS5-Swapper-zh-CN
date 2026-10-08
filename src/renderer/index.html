@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light" data-skin="one">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' file: data: blob: https://5.rakanki.com https://media.rakanki.com http://127.0.0.1:*" />
+  <title>DLSS 5 Swapper</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="overlay-lab.css" />
+  <link rel="stylesheet" href="overlay-controls.css" />
+  <link rel="stylesheet" href="chat.css" />
+  <link rel="stylesheet" href="theme2.css" />
+</head>
+<body>
+  <div class="shell">
+    <!-- ---------------- sidebar ---------------- -->
+    <aside class="sidebar">
+      <div class="brand" id="brand"></div>
+
+      <nav class="nav" id="nav">
+        <button class="nav-item active" data-view="home">
+          <svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20h14V9.5"/></svg>
+          <span data-i18n="navHome">Home</span><i class="dot"></i>
+        </button>
+        <button class="nav-item" data-view="games">
+          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="11" rx="4"/><path d="M7 11v3m-1.5-1.5h3M16 12h.01M18.5 14h.01"/></svg>
+          <span data-i18n="navGames">Games</span><i class="dot"></i>
+        </button>
+        <button class="nav-item" data-view="chat">
+          <svg viewBox="0 0 24 24"><path d="M5 5h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H9l-5 3v-4.5A2 2 0 0 1 3 15V7a2 2 0 0 1 2-2z"/><path d="M7 10h10M7 14h6"/></svg>
+          <span id="navChat">Chat</span><i class="dot"></i><b class="chat-nav-unread hidden" id="chatNavUnread"></b>
+        </button>
+        <button class="nav-item" data-view="community">
+          <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.7M16 3.3a4 4 0 0 1 0 7.4"/></svg>
+          <span data-i18n="navCommunity">Community</span><i class="dot"></i>
+        </button>
+        <button class="nav-item" data-view="addons">
+          <svg viewBox="0 0 24 24"><path d="M10 4.5a1.9 1.9 0 1 1 3.8 0V6H17a1 1 0 0 1 1 1v3.2h1.5a1.9 1.9 0 1 1 0 3.8H18V17a1 1 0 0 1-1 1h-3.2v1.5a1.9 1.9 0 1 1-3.8 0V18H7a1 1 0 0 1-1-1v-3.2H4.5a1.9 1.9 0 1 1 0-3.8H6V7a1 1 0 0 1 1-1h3z"/></svg>
+          <span data-i18n="navAddons">Add-ons</span><i class="dot"></i>
+        </button>
+        <button class="nav-item" data-view="overlays">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 9v12M13 13h4M13 17h4"/></svg>
+          <span data-i18n="navOverlay">Overlay</span><i class="dot"></i>
+        </button>
+        <button class="nav-item" data-view="history">
+          <svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5M12 7v5l3.5 2"/></svg>
+          <span data-i18n="navHistory">History</span><i class="dot"></i>
+        </button>
+        <button class="nav-item" data-view="settings">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M19.5 14.5a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.6-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.6V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.6 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V9a1.7 1.7 0 0 0 1.6 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.4 1z"/></svg>
+          <span data-i18n="navSettings">Settings</span><i class="dot"></i>
+        </button>
+        <button class="nav-item" data-view="about">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 16v-5M12 8h.01"/></svg>
+          <span data-i18n="navAbout">About</span><i class="dot"></i>
+        </button>
+      </nav>
+
+      <div class="status-card">
+        <div class="status-line"><i class="live"></i><b id="statusText" data-i18n="ready">Ready</b></div>
+        <p class="status-sub">DLSS 5 Swapper</p>
+        <p class="status-sub" id="statusVersion"></p>
+        <a class="status-update hidden" id="statusUpdate" href="https://github.com/rakanki911/DLSS5-Swapper/releases/latest" data-project="releases"></a>
+        <div class="bar"><i id="statusBar" style="width:22%"></i></div>
+      </div>
+    </aside>
+
+    <!-- ---------------- main ---------------- -->
+    <div class="main">
+      <div class="toolbar">
+        <button id="themeBtn" class="round" title="Theme">
+          <svg viewBox="0 0 24 24" id="themeIcon"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8"/></svg>
+        </button>
+        <div class="lang-wrap">
+          <button id="langBtn" class="pill">
+            <span id="langLabel">EN</span>
+            <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="lang-menu hidden" id="langMenu"></div>
+        </div>
+        <button class="win" id="winMin" title="Minimize" aria-label="Minimize">
+          <svg viewBox="0 0 24 24"><path d="M6 12h12"/></svg>
+        </button>
+        <button class="win close" id="winClose" title="Close" aria-label="Close">
+          <svg viewBox="0 0 24 24"><path d="M7 7l10 10M17 7L7 17"/></svg>
+        </button>
+      </div>
+
+      <!-- HOME -->
+      <section class="view active" id="view-home">
+        <div class="glass dropzone" id="dropZone">
+          <div class="dz-circle">
+            <svg viewBox="0 0 24 24"><path d="M3 8a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          </div>
+          <h2 data-i18n="dropTitle">Drop game folder here</h2>
+          <p class="or" data-i18n="or">or</p>
+          <button class="glass-btn" id="browseBtn" data-i18n="browse">Browse Folder</button>
+        </div>
+
+        <div class="section-head">
+          <h3 data-i18n="recentTitle">Recent Games</h3>
+          <button class="link" data-view="games"><span data-i18n="viewAll">View All</span> <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
+        </div>
+        <div class="recents" id="recents"></div>
+
+        <div class="section-head">
+          <h3 data-i18n="logTitle">Activity Log</h3>
+          <div class="row">
+            <button class="ghost sm" id="copyLog" data-i18n="copyLog" disabled>Copy log</button>
+            <button class="ghost sm" id="clearLog" data-i18n="clear">Clear</button>
+          </div>
+        </div>
+        <div class="glass log" id="log"></div>
+      </section>
+
+      <!-- COMMUNITY -->
+      <section class="view chat-view" id="view-chat">
+        <div class="chat-shell">
+          <header class="chat-head">
+            <div>
+              <div class="chat-title-line"><h3 id="chatTitle">Community chat</h3><span class="chat-live"><i></i> LIVE</span></div>
+              <p id="chatSubtitle">Share results, screenshots and game discoveries with everyone.</p>
+            </div>
+            <div class="chat-head-actions">
+              <span class="chat-retention" id="chatRetention">Images expire after 24 hours</span>
+              <button class="ghost sm" id="chatRefresh" type="button">Refresh</button>
+            </div>
+          </header>
+          <main class="chat-room" id="chatRoom">
+            <button class="chat-older" id="chatOlder" type="button">Load earlier messages</button>
+            <div class="chat-empty hidden" id="chatEmpty"><i>💬</i><b>Start the conversation</b><span>Share a tip, screenshot, or game card.</span></div>
+            <div class="chat-messages" id="chatMessages" aria-live="polite"></div>
+            <button class="chat-new hidden" id="chatNew" type="button">New messages ↓</button>
+          </main>
+          <footer class="chat-composer-wrap" id="chatDropZone">
+            <div class="chat-reply-preview hidden" id="chatReplyPreview"></div>
+            <div class="chat-attachment-strip hidden" id="chatAttachments"></div>
+            <div class="chat-composer">
+              <button class="chat-plus" id="chatPlus" type="button" aria-label="Attach">+</button>
+              <div class="chat-input-wrap">
+                <textarea id="chatInput" rows="1" maxlength="2000" placeholder="Message the community…"></textarea>
+                <div class="mention-menu hidden" id="chatMentions"></div>
+                <span class="chat-limit" id="chatLimit">0/2000</span>
+              </div>
+              <button class="chat-send" id="chatSend" type="button" aria-label="Send">
+                <svg viewBox="0 0 24 24"><path d="m3 11 17-8-7 18-2-7zM11 14l9-11"/></svg>
+              </button>
+            </div>
+            <p class="chat-compose-hint" id="chatComposeHint">Enter to send · Shift+Enter for a new line · paste or drop images</p>
+          </footer>
+          <input id="chatFile" type="file" accept="image/png,image/jpeg,image/webp" multiple hidden>
+        </div>
+      </section>
+
+      <!-- COMMUNITY -->
+      <section class="view" id="view-community">
+        <div class="section-head community-heading">
+          <!-- The badge is a sibling of the title, not inside it: the title's
+               text is replaced wholesale when the language changes. -->
+          <div><div class="community-title-row"><h3 id="communityTitle">Community-tested games</h3><span class="beta-tag" title="This feature is new and still being tested">BETA</span></div><p class="hint" id="communitySubtitle">Real results from DLSS 5 Swapper users.</p></div>
+          <div class="community-heading-actions">
+            <button class="glass-btn sm" id="communityRefresh">Refresh</button>
+            <span class="community-game-total" id="communityGameTotal" role="status" aria-live="polite">— games</span>
+          </div>
+        </div>
+        <div class="community-filters" role="search" aria-labelledby="communityTitle">
+          <label><span id="communitySearchLabel">Search games</span><input id="communitySearch" type="search" autocomplete="off" spellcheck="false"></label>
+          <label><span id="communityRouteLabel">Route</span><select id="communityRoute"><option value="all">All routes</option><option value="feeder">Feeder</option><option value="renodx">RenoDX</option><option value="optiscaler">OptiScaler</option></select></label>
+          <label><span id="communityApiLabel">Rendering API</span><select id="communityApi"><option value="all">All APIs</option><option value="dx12">DX12</option><option value="dx11">DX11</option><option value="dx9">DX9</option><option value="dx8">DX8</option><option value="vulkan">Vulkan</option><option value="opengl">OpenGL</option></select></label>
+          <label><span id="communityStatusLabel">Result</span><select id="communityStatus"><option value="all">All results</option><option value="working">Working</option><option value="mixed">Mixed</option><option value="broken">Not working</option></select></label>
+          <label id="communityGpuField" hidden><span id="communityGpuLabel">Graphics card</span><select id="communityGpu"><option value="all">All graphics cards</option></select></label>
+          <label id="communitySortField" hidden><span id="communitySortLabel">Sort</span><select id="communitySort"><option value="recent">Most recent</option><option value="reports">Most reports</option><option value="title">A–Z</option></select></label>
+          <button class="ghost sm" id="communityClear">Clear filters</button>
+        </div>
+        <div class="community-scope" id="communityScope" role="group" hidden>
+          <button type="button" data-scope="all" class="on" aria-pressed="true"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3.5 19c.8-3 3-4.6 5.5-4.6s4.7 1.6 5.5 4.6M15 15c.6-.4 1.3-.6 2-.6 2 0 3.3 1.2 3.9 3.5"/></svg><span id="communityScopeAll">Everyone</span></button>
+          <button type="button" data-scope="mine" id="communityScopeMineBtn" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg><span id="communityScopeMine">My games</span></button>
+          <button type="button" data-scope="reports" id="communityScopeReportsBtn" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-8 8H7l-4 3v-6.5A8 8 0 0 1 11 4h2a8 8 0 0 1 8 8z"/><path d="M8 11h8M8 15h5"/></svg><span id="communityScopeReports">My comments</span></button>
+        </div>
+        <p id="communityNotice" class="community-notice" role="status" aria-live="polite"></p>
+        <div id="communityCards" class="community-grid"></div>
+        <section id="communityUnreported" class="community-unreported" hidden></section>
+      </section>
+
+      <!-- GAMES -->
+      <section class="view" id="view-games">
+        <div class="section-head games-heading">
+          <h3><span id="gamesTitle" data-i18n="gamesTitle">Games</span> <span class="count" id="gamesCount" role="status" aria-live="polite"></span></h3>
+          <div class="row">
+            <button class="ghost sm" id="addGame" data-i18n="addGame">Add a game</button>
+            <button class="ghost sm" id="addFolder" data-i18n="addFolder">Add a folder</button>
+            <button class="glass-btn sm" id="rescan" data-i18n="rescan">Rescan</button>
+          </div>
+        </div>
+        <div class="game-filters" role="search" aria-labelledby="gamesTitle">
+          <label class="game-search"><span data-i18n="searchGames">Search games</span>
+            <input id="gameSearch" type="search" autocomplete="off" spellcheck="false" aria-controls="groups">
+          </label>
+          <label><span data-i18n="fApi">Rendering API</span><select id="gameApi" aria-controls="groups"></select></label>
+          <label><span data-i18n="filterDlss">DLSS status</span><select id="gameDlss" aria-controls="groups"></select></label>
+          <label><span data-i18n="filterAddon">Add-on</span><select id="gameAddon" aria-controls="groups"></select></label>
+          <button class="ghost sm" id="clearGameFilters" data-i18n="clearFilters">Clear filters</button>
+        </div>
+        <div class="game-quick-filters" id="gameQuickFilters"></div>
+        <div id="groups"></div>
+      </section>
+
+      <!-- HISTORY -->
+      <section class="view" id="view-addons">
+        <div class="section-head">
+          <h3 data-i18n="navAddons">Add-ons</h3>
+          <button class="ghost sm" id="addonAdd" data-i18n="setAdd">Add</button>
+        </div>
+        <p class="hint" id="addonHint" data-i18n="addonHint"></p>
+        <div id="addonList"></div>
+      </section>
+
+      <section class="view" id="view-history">
+        <div class="section-head">
+          <h3 data-i18n="navHistory">History</h3>
+          <button class="ghost sm" id="copyHistory" data-i18n="copyHistory" disabled>Copy history</button>
+        </div>
+        <p class="hint hidden" id="historyWarning" role="status"></p>
+        <div class="glass" id="history"></div>
+      </section>
+
+      <!-- SETTINGS -->
+      <section class="view" id="view-overlays" aria-label="Overlay">
+        <div class="section-head">
+          <div><h3>Overlay <span class="ol-badge">BETA</span></h3><p class="hint" id="olSubtitle"></p></div>
+          <div class="row ol-toolbar"><label class="ol-install-switch"><input type="checkbox" role="switch" id="olEnabled"><span id="olEnabledLabel">Install with DLSS</span></label><button class="ghost sm" id="olSource">Developer files</button><button class="ghost sm" id="olHotkey">Hotkey · F8</button><button class="ghost sm" id="olCustom">Create theme</button><button class="glass-btn sm" id="olAdd">＋ Add</button></div>
+        </div>
+        <p id="olStatus" role="status" aria-live="polite"></p>
+        <p id="olBridge" class="ol-bridge"></p><div id="olThemeGallery"></div><div id="olLibrary"></div><div id="olInstalls"></div>
+        <dialog id="olPreviewDialog" class="ol-dialog"><div class="ol-dialog-head"><h3 id="olPreviewLabel">Demo preview</h3><button id="olPreviewClose" class="ghost">✕</button></div><div id="olPreview"></div></dialog>
+        <dialog id="olCustomDialog" class="ol-dialog ol-custom-dialog">
+          <h3 id="olCustomTitle">Create a theme</h3>
+          <p id="olCustomHelp">Pick an accent colour. The panel's other shades are derived from it.</p>
+          <div class="ol-custom-row">
+            <label for="olCustomColour" id="olCustomColourLabel">Colour</label>
+            <input type="color" id="olCustomColour" value="#ff7a00">
+            <label for="olCustomName" id="olCustomNameLabel">Name</label>
+            <input type="text" id="olCustomName" maxlength="32" spellcheck="false" value="My theme">
+          </div>
+          <div class="ol-custom-preview"><div class="ol-static-panel" id="olCustomPreview" inert aria-hidden="true"></div></div>
+          <p id="olCustomError" role="status"></p>
+          <div class="row"><button id="olCustomCancel" class="ghost">Cancel</button><button id="olCustomSave" class="glass-btn">Save</button></div>
+        </dialog>
+        <dialog id="olHotkeyDialog" class="ol-dialog ol-hotkey-dialog"><h3>Overlay hotkey</h3><p id="olKeyHelp">Click the field, then press your shortcut. Ctrl, Alt and Shift are supported. Home / Escape stay reserved for ReShade.</p><button id="olKeyCapture" class="ghost">F8</button><p id="olKeyError" role="status"></p><div class="row"><button id="olKeyCancel" class="ghost">Cancel</button><button id="olKeySave" class="glass-btn">Save</button></div></dialog>
+      </section>
+
+      <section class="view" id="view-settings">
+        <div class="section-head"><h3 data-i18n="navSettings">Settings</h3></div>
+        <div class="glass pad" id="settings"></div>
+      </section>
+
+      <!-- ABOUT -->
+      <section class="view" id="view-about">
+        <div class="section-head"><h3 data-i18n="navAbout">About</h3></div>
+        <div class="glass pad about">
+          <p><b data-i18n="aboutTitle">DLSS 5 Swapper</b></p>
+          <p data-i18n="aboutBody"></p>
+          <div class="about-links">
+            <a class="glass-btn" href="https://github.com/rakanki911/DLSS5-Swapper" data-project="github">GitHub ↗</a>
+            <a class="glass-btn" href="https://github.com/rakanki911/DLSS5-Swapper/releases/latest" data-project="releases"><span data-i18n="latestReleases">Latest releases</span> ↗</a>
+          </div>
+          <p class="hint hidden" id="projectLinkError" role="status" data-i18n="errProjectLink"></p>
+          <div class="support">
+            <p class="support-line" data-i18n="supportBody"></p>
+            <div class="support-row">
+              <a href="https://buymeacoffee.com/rakanki911" data-project="coffee" class="support-button">
+                <img src="support-coffee.png" alt="Buy me a coffee" height="40">
+              </a>
+              <img class="support-qr" src="support-qr.png" alt="Buy me a coffee QR code" width="112" height="112">
+            </div>
+          </div>
+          <p class="dim" data-i18n="aboutBy">Built by Rakan Alkhaldi</p>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- game detail sheet -->
+  <div class="overlay hidden" id="dlgOverlay">
+    <div class="dialog">
+      <h3 data-i18n="addonAddTitle">Add an add-on</h3>
+      <div class="dlg-file" id="dlgFile"></div>
+      <label class="dlg-label" for="dlgName" data-i18n="addonName">Name</label>
+      <input class="dlg-input" id="dlgName" type="text" spellcheck="false">
+      <label class="dlg-label" for="dlgDesc" data-i18n="addonDesc">Description</label>
+      <textarea class="dlg-input" id="dlgDesc" rows="4" spellcheck="false"></textarea>
+      <div class="dlg-hint" data-i18n="addonDescHint"></div>
+      <label class="dlg-label" for="dlgTag" data-i18n="addonTag">Tag</label>
+      <input class="dlg-input" id="dlgTag" type="text" spellcheck="false">
+      <div class="dlg-actions">
+        <button class="ghost sm" id="dlgCancel" data-i18n="cancel">Cancel</button>
+        <button class="glass-btn sm" id="dlgSave" data-i18n="setAdd">Add</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay hidden" id="overlay">
+    <div class="sheet" id="sheet"></div>
+  </div>
+  <dialog id="communityCardDialog" class="community-dialog">
+    <div class="community-card-head" id="communityCardHead"></div>
+    <!-- Following a game is what turns other people's comments on it into
+         something worth interrupting you for. Off unless asked for. -->
+    <button class="community-follow" id="communityFollow" type="button" aria-pressed="false">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 8-3 8h18s-3-1-3-8"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+    </button>
+    <button class="community-close" id="communityCardClose" aria-label="Close">✕</button>
+    <div id="communityCardBody"></div>
+  </dialog>
+  <dialog id="communityReportDialog" class="community-dialog community-report-dialog">
+    <div class="community-card-head" id="communityReportHead"></div>
+    <button class="community-close" id="communityReportClose" aria-label="Close">✕</button>
+    <form id="communityReportForm" class="community-report-body">
+      <div class="community-report-grid">
+        <label><span id="communityReportRouteLabel" data-icon="route">Route used</span><select id="communityReportRoute" required><option value="">Choose…</option><option value="feeder">Feeder</option><option value="renodx">RenoDX</option><option value="optiscaler">OptiScaler</option></select></label>
+        <label><span id="communityReportApiLabel" data-icon="api">Rendering API</span><select id="communityReportApi"><option value="">Choose…</option><option value="dx12">DX12</option><option value="dx11">DX11</option><option value="dx9">DX9</option><option value="dx8">DX8</option><option value="vulkan">Vulkan</option><option value="opengl">OpenGL</option></select></label>
+      </div>
+      <fieldset class="community-verdicts"><legend id="communityVerdictLabel" data-icon="result">Your result</legend><button type="button" data-verdict="green"><b>Working</b><small>Game runs great</small></button><button type="button" data-verdict="yellow"><b>Works with issues</b><small>Minor or major issues</small></button><button type="button" data-verdict="red"><b>Not working</b><small>Doesn’t run or crashes</small></button></fieldset>
+      <label class="community-comment"><span id="communityCommentLabel" data-icon="comment">Optional comment</span><textarea id="communityReportComment" maxlength="1200" rows="4" placeholder="Write a comment about your experience, settings, or issues…"></textarea><span class="community-count" id="communityCommentCount">0/1200</span></label>
+      <div class="community-privacy"><b id="communityPrivacyTitle" data-icon="sent">Data that will be sent</b><div id="communityPrivacyData"></div></div>
+      <p id="communityReportError" class="community-error" role="status"></p>
+      <div class="community-submit-row"><span class="community-why" id="communityWhy">Your report helps improve compatibility for everyone.</span><button type="button" class="ghost" id="communityReportCancel">Cancel</button><button type="submit" class="glass-btn" id="communityReportSubmit">Submit report</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="chatAttachDialog" class="chat-dialog">
+    <header><div><span class="chat-dialog-kicker">ADD TO MESSAGE</span><h3 id="chatAttachTitle">Share something</h3></div><button class="chat-dialog-close" data-chat-close="chatAttachDialog" type="button">✕</button></header>
+    <div class="chat-attach-actions">
+      <button id="chatChoosePhotos" type="button"><i>▧</i><b>Photos</b><span>Up to 4 images</span></button>
+      <button id="chatChooseGame" type="button"><i>◇</i><b>Game card</b><span>Search community results</span></button>
+    </div>
+    <div class="chat-game-picker hidden" id="chatGamePicker">
+      <label><span id="chatGameSearchLabel">Find a game</span><input id="chatGameSearch" type="search" autocomplete="off" placeholder="Type a game name…"></label>
+      <div id="chatGameResults" class="chat-game-results"></div>
+    </div>
+  </dialog>
+
+  <dialog id="chatViewer" class="chat-viewer">
+    <div class="chat-viewer-stage" id="chatViewerStage">
+      <img id="chatViewerImage" alt="Chat attachment">
+    </div>
+    <div class="chat-viewer-top"><span id="chatViewerCount"></span><span id="chatViewerLabel"></span></div>
+    <button class="chat-viewer-close" id="chatViewerClose" type="button">✕</button>
+    <button class="chat-viewer-nav prev" id="chatViewerPrev" type="button">‹</button>
+    <button class="chat-viewer-nav next" id="chatViewerNext" type="button">›</button>
+    <div class="chat-viewer-tools"><button id="chatZoomOut" type="button">−</button><span id="chatZoomValue">100%</span><button id="chatZoomIn" type="button">+</button><button id="chatZoomReset" type="button">Fit</button></div>
+  </dialog>
+
+  <div class="chat-context hidden" id="chatContext" role="menu" popover="manual"></div>
+  <div class="chat-label-menu hidden" id="chatLabelMenu" role="menu" popover="manual"></div>
+  <div id="gameMenu" class="ctx-menu hidden" role="menu" aria-hidden="true"></div>
+  <div id="copyFeedback" class="copy-feedback hidden" role="status" aria-live="polite"></div>
+
+  <script src="overlay-panel.js"></script>
+  <script src="overlay-live.js"></script>
+  <script src="overlay-gallery.js"></script>
+  <script src="i18n.js"></script>
+  <script src="i18n-extra.js"></script>
+  <script src="../shared/feature-i18n.js"></script>
+  <script src="game-filters.js"></script>
+  <script src="mentions.js"></script>
+  <script src="ask.js"></script>
+  <script src="cheer.js"></script>
+  <script src="../shared/install-routes.js"></script>
+  <script src="../shared/rendering-api.js"></script>
+  <script src="community.js"></script>
+  <script src="chat.js"></script>
+  <script src="renderer.js"></script>
+  <script src="theme2.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+node_modules/
+payload/
+addons/
+overlay-bin/
+dist/
+build/icon.ico
+build/icon.png
+*.log
+docs/nexus/
+tools/
+vendor/

@@ -1,0 +1,89 @@
+.ol-badge { display:inline-block; margin-inline-start:9px; padding:5px 8px; border:1px solid #78994466; border-radius:6px; color:#60921b; font-size:10px; letter-spacing:1.2px; vertical-align:middle }
+#olStatus { min-height:22px; font-size:12px; white-space:pre-wrap; overflow-wrap:anywhere }
+.ol-layout { display:grid; grid-template-columns:minmax(250px,.9fr) minmax(380px,1.15fr); gap:26px; align-items:start }
+.ol-card { border:1px solid #8c959b33; background:var(--surface, #ffffff0b); border-radius:16px; padding:22px; margin-bottom:16px }
+.ol-card.selected { border-color:#80b91f99; box-shadow:0 3px 18px #7899440a }
+.ol-card h3 { margin:14px 0 8px; font-size:17px; line-height:1.5 }
+.ol-card-icon { display:grid; place-content:center; color:#8aca21; background:#80b91f12; border:1px solid #80b91f44; border-radius:12px; width:48px; height:48px; font-size:28px }
+.ol-tags { display:flex; gap:8px; flex-wrap:wrap; font-size:10px; opacity:.8 }
+.ol-tags span { border:1px solid #8c959b33; padding:4px 7px; border-radius:5px }
+.ol-card p { font-size:12px; line-height:1.8; opacity:.8 }
+.ol-card .ol-build-state { color:#72a914; opacity:1; margin:18px 0 }
+.ol-actions { display:flex; flex-wrap:wrap; gap:8px }
+.ol-card details { margin-top:15px; font-size:10px; opacity:.65 }
+.ol-card code { display:block; margin-top:8px; word-break:break-all }
+.ol-path { overflow-wrap:anywhere }
+.ol-preview-label { color:#8c939d; font-size:9px; letter-spacing:1px; margin:0 0 12px; line-height:1.8 }
+.ol-panel { background:radial-gradient(ellipse at 0 0,#393a34,#232528 75%); color:#d7dbde; border:1px solid #50524c; border-radius:18px; box-shadow:0 20px 60px #0004; padding:25px 28px 18px; font-family:Segoe UI,sans-serif }
+.ol-panel header { display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap }
+.ol-panel { color-scheme:light }
+.ol-eyebrow { font-size:11px; font-weight:700; letter-spacing:2px; line-height:1.8 }
+.ol-prototype { font-size:8px; letter-spacing:1px; padding:4px 6px; border:1px solid #a2ad8955; border-radius:4px; color:#bdc6a6 }
+.ol-panel section { padding:18px 0; border-top:1px solid #c8cab31d }
+.ol-panel h4 { font-size:11px; letter-spacing:2px; margin:0 0 16px; color:#d9dddf }
+.ol-panel small { color:#888f90; font-weight:400; font-size:9px; letter-spacing:0; margin-left:auto }
+.ol-check { display:flex; gap:10px; align-items:center; font-size:11px; font-weight:600; letter-spacing:.5px }
+.ol-check input { accent-color:#8ccc06; width:16px; height:16px; margin:0 }
+.ol-master { padding:23px 0; letter-spacing:2px }
+.ol-slider { display:grid; grid-template-columns:125px minmax(70px,1fr) 35px; gap:12px; align-items:center; margin:14px 0 0; font-size:11px; font-weight:500 }
+.ol-slider output { font-family:Consolas,monospace; color:#c8d0d0; text-align:right; font-weight:400 }
+.ol-slider input { width:100%; height:5px; accent-color:#8bc400; cursor:pointer; margin:0; background:#565954 }
+.ol-slider input::-webkit-slider-thumb { cursor:pointer }
+.ol-muted { opacity:.45 }
+.ol-muted input { cursor:not-allowed }
+.ol-group { margin:22px 0 6px }
+.ol-group > .ol-check { margin-bottom:4px }
+.ol-models { display:flex; gap:10px }
+.ol-model { flex:1; padding:12px 6px; border-radius:8px; background:#53594d22; color:#bec6c2; border:1px solid #c2c5b129; cursor:pointer; font-size:12px }
+.ol-model.selected { border-color:#87b126; background:#92b91525; color:#b0da45 }
+.ol-panel footer { border-top:1px solid #c8cab31d; padding-top:12px; color:#a0a7a2; font-size:9px; line-height:1.7 }
+.ol-custom-placeholder { border:1px dashed #9996; border-radius:16px; padding:35px; line-height:1.8; font-size:13px; overflow-wrap:anywhere }
+#view-overlays button:disabled { opacity:.4; cursor:not-allowed }
+@media (max-width:1050px) { .ol-layout { grid-template-columns:1fr } .ol-preview-wrap { max-width:520px } }
+#olPreview { direction:ltr }
+#olThemeGallery { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; align-items:start; margin:18px 0 28px }
+.ol-theme-card { min-width:0; overflow:hidden; border:1px solid var(--ol-accent); border-radius:14px; background:var(--ol-back); box-shadow:0 8px 28px #0002 }
+.ol-theme-card.selected { box-shadow:0 0 0 1px var(--ol-accent),0 8px 30px var(--ol-soft) }
+.ol-card-stage { overflow:hidden; width:100%; min-height:350px; pointer-events:none; user-select:none; direction:ltr }
+.ol-static-panel { width:534px; transform-origin:top left; pointer-events:none }
+.ol-static-panel .ol-panel { border:0; border-radius:0; box-shadow:none }
+.ol-theme-bottom { padding:14px 18px 18px; border-top:1px solid #ffffff18; color:#dce3e9 }
+.ol-theme-bottom h3 { margin:0 0 12px; font-size:15px }
+.ol-theme-bottom .ol-actions { display:flex; flex-wrap:nowrap }
+.ol-theme-bottom button { flex:1; min-width:0; padding:12px 5px; border-radius:8px; color:#e4edf6; border:1px solid #ffffff22; background:#ffffff08; cursor:pointer }
+.ol-theme-bottom .ol-select { border-color:var(--ol-accent); background:var(--ol-soft); color:var(--ol-bright) }
+.ol-theme-bottom .drop { flex:none; width:44px; align-self:stretch; background:rgba(226,90,90,.12); border-color:rgba(226,90,90,.4); color:#ff7d7d }
+.ol-theme-bottom .drop svg { width:15px; height:15px }
+.ol-toolbar { flex-wrap:wrap; justify-content:flex-end; gap:10px }
+.ol-install-switch { display:flex; align-items:center; gap:9px; font-size:12px; cursor:pointer }
+.ol-install-switch input { appearance:none; width:42px; height:24px; background:#6c7785; border-radius:20px; position:relative; cursor:pointer; flex-shrink:0 }
+.ol-install-switch input::after { content:''; position:absolute; top:3px; left:3px; width:18px; height:18px; background:white; border-radius:50%; transition:transform .15s }
+.ol-install-switch input:checked { background:#7bb509 }
+.ol-install-switch input:checked::after { transform:translateX(18px) }
+.ol-install-switch input:focus-visible { outline:2px solid #8bc400; outline-offset:3px }
+.ol-dialog { position:fixed; inset:0; margin:auto; width:min(590px,calc(100vw - 40px)); max-width:calc(100vw - 40px); height:fit-content; max-height:90vh; box-sizing:border-box; padding:18px; border:1px solid var(--stroke); border-radius:18px; background:var(--panel); color:var(--text); overflow:auto; box-shadow:0 30px 100px #0006 }
+.ol-theme-bottom button[data-ol-action="preview"]:is(:hover,:focus-visible,:active) { color:#fff; background:#25313d; border-color:var(--ol-accent); }
+.ol-dialog::backdrop { background:rgba(8,13,18,.72); backdrop-filter:blur(5px) }
+.ol-dialog-head { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:12px }
+.ol-dialog h3 { margin:0; font-size:16px }
+.ol-dialog > p { color:var(--muted); font-size:13px; line-height:1.7 }
+#olKeyError, #olCustomError { color:#c0392b; min-height:22px; font-size:12px }
+:root[data-theme="dark"] :is(#olKeyError,#olCustomError) { color:#ffab9f }
+.ol-hotkey-dialog { width:450px; padding:26px; line-height:1.8 }
+#olKeyCapture { width:100%; padding:20px; font:20px Consolas,monospace; border:1px solid #80b719; border-radius:10px }
+#olInstalls summary { cursor:pointer; padding:14px 0 }
+@media(max-width:1100px) { #olThemeGallery { grid-template-columns:repeat(2,minmax(0,1fr)) } #view-overlays .section-head { flex-wrap:wrap; gap:15px } }
+@media(max-width:750px) { #olThemeGallery { grid-template-columns:minmax(0,1fr) } .ol-toolbar { justify-content:flex-start } }
+.ol-custom-dialog .ol-custom-row { display:grid; grid-template-columns:auto 52px auto 1fr; gap:10px; align-items:center; margin:14px 0 }
+.ol-custom-dialog input[type=color] { width:52px; height:34px; padding:2px; border:1px solid var(--stroke); border-radius:9px; background:var(--panel-2); cursor:pointer }
+.ol-custom-dialog input[type=text] { padding:9px 11px; border:1px solid var(--stroke); border-radius:10px; background:var(--panel-2); color:var(--text); font:inherit; font-size:13px }
+.ol-custom-dialog input[type=text]:focus { outline:none; border-color:var(--accent) }
+/* The preview is the real panel, scaled down so the dialog stays a dialog. */
+.ol-custom-preview { max-height:300px; overflow:hidden; border-radius:12px; margin-bottom:12px; direction:ltr }
+/* What the overlay service is doing, with a dot that says it at a glance. */
+.ol-bridge { margin:14px 0 0; font-size:12px; color:var(--muted); display:flex; align-items:center; gap:8px }
+.ol-bridge:empty { display:none }
+.ol-bridge::before { content:''; width:8px; height:8px; border-radius:50%; background:var(--dim); flex:none }
+.ol-bridge[data-state="on"]::before { background:#6cc10a }
+.ol-bridge[data-state="ready"]::before { background:#d8a300 }
+.ol-bridge[data-state="off"]::before { background:#e05a5a }

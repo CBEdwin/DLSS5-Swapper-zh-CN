@@ -1,0 +1,41 @@
+.ol-live-modes { margin:16px 0 }
+.ol-live-modes .ol-model { background:#292c29; color:#bec6c2; }
+.ol-live-modes .ol-model.selected { background:#3e4a27; color:#b0da45; }
+.ol-live-note { color:#aeb5af; font-size:11px; line-height:1.7; margin:16px 0 }
+.ol-live-tools { height:514px; overflow-y:auto; overflow-x:hidden; padding-right:6px }
+.ol-live-toggle { margin:16px 0 }
+.ol-live-effect { margin:22px 0 12px !important; overflow-wrap:anywhere }
+.ol-live-tools .ol-slider span { overflow-wrap:anywhere }
+.ol-live-tools input:disabled { opacity:.4 }
+.ol-additional { max-height:220px; overflow-y:auto; overflow-x:hidden; padding-right:8px; scrollbar-color:#657344 #292c29; scrollbar-width:thin }
+.ol-connected .ol-slider { grid-template-columns:minmax(125px, 1fr) minmax(80px, 1.5fr) 62px; line-height:1.5 }
+.ol-slider span, .ol-choice span, .ol-check span { min-width:0; overflow-wrap:anywhere }
+.ol-panel .ol-slider .ol-number { height:26px; box-sizing:border-box; border:1px solid #76816766; border-radius:4px; padding:2px 4px; color:#d7dbde; background:#292c29; font:11px Consolas,monospace; text-align:right; cursor:text }
+.ol-number::-webkit-inner-spin-button { appearance:none }
+.ol-number:focus { outline:1px solid #8bc400 }
+.ol-choice { display:grid; grid-template-columns:150px minmax(0,1fr); align-items:center; gap:12px; font-size:11px; margin:18px 0; line-height:1.5 }
+.ol-choice select { color:#d7dbde; background:#292c29; border:1px solid #76816766; border-radius:5px; width:100%; font:11px 'Segoe UI',sans-serif }
+.ol-choice option { padding:5px 8px }
+.ol-choice option:checked { background:#50671e; color:#e0eece }
+.ol-connected .ol-model { white-space:normal; line-height:1.5 }
+.ol-connected input:disabled, .ol-connected select:disabled, .ol-connected button:disabled { opacity:.45; cursor:not-allowed }
+.ol-dropdown { position:relative; min-width:0 }
+.ol-dropdown-trigger { width:100%; min-height:34px; border:1px solid #76816766; border-radius:6px; padding:8px 28px 8px 10px; background:#292c29; color:#d7dbde; font:11px 'Segoe UI',sans-serif; text-align:left; cursor:pointer; position:relative }
+.ol-dropdown-trigger::after { content:'▾'; position:absolute; right:10px; color:#a8ba8c }
+.ol-dropdown-menu { position:fixed; z-index:10000; padding:4px; border:1px solid #768167; border-radius:6px; background:#292c29; box-shadow:0 8px 20px #0007; overflow:auto; box-sizing:border-box; scrollbar-width:thin }
+.ol-dropdown-menu[hidden] { display:none }
+.ol-dropdown-option { display:block; width:100%; border:0; border-radius:3px; text-align:left; padding:8px; background:transparent; color:#d7dbde; font:11px 'Segoe UI',sans-serif; cursor:pointer; white-space:normal }
+.ol-dropdown-option[aria-selected=true] { background:#50671e; color:#e0eece }
+.ol-dropdown-option:focus, .ol-dropdown-option:hover { outline:1px solid #8bc400; background:#414c32 }
+.ol-dropdown-trigger:focus-visible { outline:1px solid #8bc400 }
+#olPreview { display:flow-root }
+[data-overlay-theme] { --ol-accent:#8bc400; --ol-soft:#8bc40025; --ol-back:#111a10; --ol-bright:#c2ec66 }
+[data-overlay-theme=blue] { --ol-accent:#4aa8ee; --ol-soft:#4aa8ee25; --ol-back:#0d1724; --ol-bright:#91d1ff }
+[data-overlay-theme=purple] { --ol-accent:#b45dea; --ol-soft:#b45dea25; --ol-back:#1b1127; --ol-bright:#ddb0ff }
+[data-overlay-theme] .ol-panel { background:radial-gradient(ellipse at 0 0,var(--ol-back),#101519 90%); border-color:var(--ol-accent); color-scheme:dark }
+[data-overlay-theme] .ol-check input,[data-overlay-theme] .ol-slider input { accent-color:var(--ol-accent) }
+[data-overlay-theme] .ol-model.selected,[data-overlay-theme] .ol-dropdown-option[aria-selected=true] { background:var(--ol-soft); border-color:var(--ol-accent); color:var(--ol-bright) }
+[data-overlay-theme] .ol-prototype { color:var(--ol-bright); border-color:var(--ol-accent) }
+[data-overlay-theme] .ol-additional { scrollbar-color:var(--ol-accent) #151b21 }
+[data-overlay-theme] .ol-number:focus,[data-overlay-theme] .ol-dropdown-trigger:focus-visible { outline-color:var(--ol-accent) }
+.ol-preview-backend { border:1px solid #657344; border-radius:6px; padding:8px 12px; color:#d7dbde; background:#292c29; cursor:pointer; margin-bottom:12px }

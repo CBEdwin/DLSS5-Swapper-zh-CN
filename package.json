@@ -1,0 +1,102 @@
+{
+  "name": "dlss5-swapper",
+  "version": "2.2.9",
+  "description": "DLSS 5 (Neural Rendering) for your games - a library that finds them, and one click to install",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test --test-concurrency=1 test/*.test.js",
+    "test:ui": "electron scripts/test-game-filters-ui.js",
+    "test:payload": "node scripts/test-feeder-payload.js",
+    "test:optiscaler": "node scripts/test-optiscaler-payload.js",
+    "payload": "node scripts/collect-payload.js",
+    "prebuild": "npm run payload",
+    "build": "electron-builder --win",
+    "build:linux": "electron-builder --linux AppImage deb",
+    "icon": "electron scripts/make-icon.js",
+    "build:portable": "electron-builder --win portable",
+    "overlay:build": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/build-overlay.ps1",
+    "overlay:prepare": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/prepare-overlay.ps1"
+  },
+  "author": "Rakan Alkhaldi",
+  "license": "MIT",
+  "dependencies": {
+    "extract-zip": "^2.0.1"
+  },
+  "devDependencies": {
+    "electron": "^33.2.0",
+    "electron-builder": "^26.15.3"
+  },
+  "build": {
+    "appId": "com.rakan.dlss5swapper",
+    "productName": "DLSS 5 Swapper",
+    "files": [
+      "main.js",
+      "preload.js",
+      "overlay-preload.js",
+      "THIRD_PARTY_NOTICES.md",
+      "src/**/*",
+      "assets/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "payload",
+        "to": "payload",
+        "filter": [
+          "**/*"
+        ]
+      },
+      {
+        "from": "addons",
+        "to": "addons",
+        "filter": [
+          "**/*"
+        ]
+      },
+      {
+        "from": "overlay-bin",
+        "to": "overlay",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ],
+      "icon": "build/icon.ico"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Game",
+      "maintainer": "Rakan Alkhaldi",
+      "icon": "app_iocn.png",
+      "artifactName": "DLSS5-Swapper-${version}-${arch}.${ext}"
+    },
+    "compression": "maximum",
+    "portable": {
+      "artifactName": "DLSS5-Swapper-${version}-portable.exe",
+      "unpackDirName": "DLSS5-Swapper"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": "always",
+      "createStartMenuShortcut": true,
+      "shortcutName": "DLSS 5 Swapper",
+      "installerIcon": "build/icon.ico",
+      "uninstallerIcon": "build/icon.ico",
+      "installerHeaderIcon": "build/icon.ico",
+      "deleteAppDataOnUninstall": true,
+      "artifactName": "DLSS5-Swapper-Setup-${version}.exe",
+      "include": "build/installer.nsh"
+    }
+  }
+}
