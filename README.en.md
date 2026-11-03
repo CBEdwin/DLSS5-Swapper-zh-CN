@@ -13,8 +13,8 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/CBEdwin/DLSS5-Swapper-zh-CN/releases/latest"><img src="https://img.shields.io/github/v/release/CBEdwin/DLSS5-Swapper-zh-CN?color=8fd400&label=release" alt="Latest release"></a>
-  <a href="https://github.com/CBEdwin/DLSS5-Swapper-zh-CN/releases"><img src="https://img.shields.io/github/downloads/CBEdwin/DLSS5-Swapper-zh-CN/total?color=8fd400&label=downloads&cacheSeconds=300" alt="Total downloads"></a>
+  <a href="https://github.com/CBEdwin/DLSS5-Swapper-zh-CN/releases"><img src="https://img.shields.io/badge/version-2.2.9-8fd400" alt="Version 2.2.9"></a>
+  <a href="https://github.com/CBEdwin/DLSS5-Swapper-zh-CN/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-8fd400" alt="MIT license"></a>
   <img src="https://img.shields.io/badge/Windows-10%20%2F%2011-8fd400" alt="Windows 10/11">
   <img src="https://img.shields.io/badge/languages-38-8fd400" alt="38 languages">
 </p>
