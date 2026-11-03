@@ -135,7 +135,7 @@ const assertLocalized = (haystack, key) => {
 
 请从官方渠道获取可运行版本，并自行比对 SHA-256：
 
-- 安装版 / 便携版：`https://github.com/rakanki911/DLSS5-Swapper/releases`
+- 安装版 / 便携版：`https://github.com/CBEdwin/DLSS5-Swapper-zh-CN/releases`
 - 校验和：`SHA256SUMS.txt`
 
 将本仓库的汉化改动应用到便携版源码后，可自行用 `npm run build:portable` 重新构建。

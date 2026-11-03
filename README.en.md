@@ -13,25 +13,29 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/rakanki911/DLSS5-Swapper/releases/latest"><img src="https://img.shields.io/github/v/release/rakanki911/DLSS5-Swapper?color=8fd400&label=release" alt="Latest release"></a>
-  <a href="https://github.com/rakanki911/DLSS5-Swapper/releases"><img src="https://img.shields.io/github/downloads/rakanki911/DLSS5-Swapper/total?color=8fd400&label=downloads&cacheSeconds=300" alt="Total downloads"></a>
+  <a href="https://github.com/CBEdwin/DLSS5-Swapper-zh-CN/releases/latest"><img src="https://img.shields.io/github/v/release/CBEdwin/DLSS5-Swapper-zh-CN?color=8fd400&label=release" alt="Latest release"></a>
+  <a href="https://github.com/CBEdwin/DLSS5-Swapper-zh-CN/releases"><img src="https://img.shields.io/github/downloads/CBEdwin/DLSS5-Swapper-zh-CN/total?color=8fd400&label=downloads&cacheSeconds=300" alt="Total downloads"></a>
   <img src="https://img.shields.io/badge/Windows-10%20%2F%2011-8fd400" alt="Windows 10/11">
   <img src="https://img.shields.io/badge/languages-38-8fd400" alt="38 languages">
-  <a href="https://buymeacoffee.com/rakanki911"><img src="https://img.shields.io/badge/support-555" alt="Support"></a>
-  <a href="https://buymeacoffee.com/rakanki911"><img height="20" src="https://cdn.buymeacoffee.com/buttons/v2/lato-yellow.png" alt="Buy me a coffee"></a>
+</p>
+
+> ## ⚠️ The original author has deleted the upstream repository — this is a preservation of their final release
+>
+> The upstream repo `rakanki911/DLSS5-Swapper` and the author account **have been deleted from GitHub** (both now return 404). This repository preserves the **last version the original author, Rakan Alkhaldi, published: 2.2.9**. Exactly **one thing** was changed on top of it: **the Simplified Chinese interface translations were completed to 100%**. Functionality, logic, dependencies and behaviour are **untouched** and identical to the author's final build.
+>
+> That is also why **this is not only for Chinese users**: anyone can use it as an archive of the author's v2.2.9, and the interface language can be switched in Settings (38 languages included). Chinese readers, see [README.md](README.md).
+
+<p align="center">
+  <img src="docs/screenshots/01-home.png" alt="Home" width="100%">
 </p>
 
 ## Download
 
-[**Windows Installer**](https://github.com/rakanki911/DLSS5-Swapper/releases/latest) ·
-[**Portable**](https://github.com/rakanki911/DLSS5-Swapper/releases/latest) ·
-[Checksums](https://github.com/rakanki911/DLSS5-Swapper/releases/latest)
+[**Windows Installer**](https://github.com/CBEdwin/DLSS5-Swapper-zh-CN/releases/latest) ·
+[**Portable**](https://github.com/CBEdwin/DLSS5-Swapper-zh-CN/releases/latest) ·
+[Checksums](https://github.com/CBEdwin/DLSS5-Swapper-zh-CN/releases/latest)
 
-Both are on the latest release page, with `SHA256SUMS.txt` beside them.
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/rakanki911/DLSS5-Swapper/7415065e5c5437441d0e0b0a0362d0ada6d86e15/docs/screenshots/01-home.png" alt="Home" width="100%">
-</p>
+Both are on this repository's release page, with `SHA256SUMS.txt` beside them.
 
 ## Features
 
@@ -56,16 +60,10 @@ Four faults from the tracker, fixed at the cause. Every one of them was reported
 
 | | |
 |---|---|
-| **The installer crashed before it opened** | On some machines the setup died instantly with `0xc0000005`, no window and no prompt, while the portable build was fine. The installer framework read past the end of a path Windows handed it. Fixed upstream, and this release is built with the fixed version ([#344]) |
-| **Restore originals went dead with the files still in the game** | A finished restore renames the backup record aside, and everything that decides whether a game has anything installed read only the live one. The app now offers the newest retired record whose files are still in the game, and restores from the same backups ([#325]) |
-| **dgVoodoo2 flagged by antivirus** | Upstream released 2.87.5 precisely because engines flag 2.87.4, and the app was pinned to 2.87.4 ([#390]) |
-| **ReShade never started in a wrapped DirectX 8/9 game** | Inside dgVoodoo the game is a DirectX 11 one, and some setups load only `d3d11.dll`. The **ReShade file** choice is offered for these games now ([#343], [#374]) |
-
-[#325]: https://github.com/rakanki911/DLSS5-Swapper/issues/325
-[#343]: https://github.com/rakanki911/DLSS5-Swapper/issues/343
-[#344]: https://github.com/rakanki911/DLSS5-Swapper/issues/344
-[#374]: https://github.com/rakanki911/DLSS5-Swapper/issues/374
-[#390]: https://github.com/rakanki911/DLSS5-Swapper/issues/390
+| **The installer crashed before it opened** | On some machines the setup died instantly with `0xc0000005`, no window and no prompt, while the portable build was fine. The installer framework read past the end of a path Windows handed it. Fixed upstream, and this release is built with the fixed version (upstream issue #344) |
+| **Restore originals went dead with the files still in the game** | A finished restore renames the backup record aside, and everything that decides whether a game has anything installed read only the live one. The app now offers the newest retired record whose files are still in the game, and restores from the same backups (upstream issue #325) |
+| **dgVoodoo2 flagged by antivirus** | Upstream released 2.87.5 precisely because engines flag 2.87.4, and the app was pinned to 2.87.4 (upstream issue #390) |
+| **ReShade never started in a wrapped DirectX 8/9 game** | Inside dgVoodoo the game is a DirectX 11 one, and some setups load only `d3d11.dll`. The **ReShade file** choice is offered for these games now (upstream issues #343, #374) |
 
 ## Earlier releases
 
@@ -84,7 +82,7 @@ Each one is written up in full - what broke, why, and what was changed.
 | **2.2.0** | [Optional OptiScaler and a smarter library](docs/releases/v2.2.0.md) |
 
 Every release also carries its own notes and downloads on the
-[releases page](https://github.com/rakanki911/DLSS5-Swapper/releases).
+[releases page](https://github.com/CBEdwin/DLSS5-Swapper-zh-CN/releases).
 
 ## Compatibility
 
@@ -142,9 +140,9 @@ Compatibility varies by renderer and game. Xenia HUD correction remains experime
 
 ## Screenshots
 
-<p><img src="https://raw.githubusercontent.com/rakanki911/DLSS5-Swapper/7415065e5c5437441d0e0b0a0362d0ada6d86e15/docs/screenshots/02-games.png" alt="Games" width="100%"></p>
-<p><img src="https://raw.githubusercontent.com/rakanki911/DLSS5-Swapper/7415065e5c5437441d0e0b0a0362d0ada6d86e15/docs/screenshots/03-library.png" alt="Library" width="100%"></p>
-<p><img src="https://raw.githubusercontent.com/rakanki911/DLSS5-Swapper/7415065e5c5437441d0e0b0a0362d0ada6d86e15/docs/screenshots/04-game.png" alt="Game details" width="100%"></p>
+<p><img src="docs/screenshots/02-games.png" alt="Games" width="100%"></p>
+<p><img src="docs/screenshots/03-library.png" alt="Library" width="100%"></p>
+<p><img src="docs/screenshots/04-game.png" alt="Game details" width="100%"></p>
 <p><img src="docs/screenshots/07-overlay.png" alt="The Overlay page with the Emerald, Azure and Amethyst themes" width="100%"></p>
 
 ## Before installing
@@ -168,13 +166,8 @@ Compatibility varies by renderer and game. Xenia HUD correction remains experime
   and stored locally with Windows encrypted storage. It is never written to the
   public profile or the normal community settings file.
 
-## Support
-
-DLSS 5 Swapper is free and MIT licensed. If it saved you an evening of
-fiddling, you can buy me a coffee.
-
-<p><a href="https://buymeacoffee.com/rakanki911"><img height="44" src="https://cdn.buymeacoffee.com/buttons/v2/lato-yellow.png" alt="Buy me a coffee"></a></p>
-
 ---
 
 Built by **Rakan Alkhaldi** · MIT · [Third-party credits and licences](THIRD_PARTY_NOTICES.md)
+
+This repository only preserves their final v2.2.9 build with the Simplified Chinese translation completed; no functionality was changed. The author account and upstream repository have both been deleted — contact this repository if anything needs taking down.

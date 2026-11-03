@@ -13,25 +13,29 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/rakanki911/DLSS5-Swapper/releases/latest"><img src="https://img.shields.io/github/v/release/rakanki911/DLSS5-Swapper?color=8fd400&label=release" alt="Latest release"></a>
-  <a href="https://github.com/rakanki911/DLSS5-Swapper/releases"><img src="https://img.shields.io/github/downloads/rakanki911/DLSS5-Swapper/total?color=8fd400&label=downloads&cacheSeconds=300" alt="Total downloads"></a>
+  <a href="https://github.com/CBEdwin/DLSS5-Swapper-zh-CN/releases/latest"><img src="https://img.shields.io/github/v/release/CBEdwin/DLSS5-Swapper-zh-CN?color=8fd400&label=release" alt="Latest release"></a>
+  <a href="https://github.com/CBEdwin/DLSS5-Swapper-zh-CN/releases"><img src="https://img.shields.io/github/downloads/CBEdwin/DLSS5-Swapper-zh-CN/total?color=8fd400&label=downloads&cacheSeconds=300" alt="Total downloads"></a>
   <img src="https://img.shields.io/badge/Windows-10%20%2F%2011-8fd400" alt="Windows 10/11">
   <img src="https://img.shields.io/badge/languages-38-8fd400" alt="38 languages">
-  <a href="https://buymeacoffee.com/rakanki911"><img src="https://img.shields.io/badge/support-555" alt="Support"></a>
-  <a href="https://buymeacoffee.com/rakanki911"><img height="20" src="https://cdn.buymeacoffee.com/buttons/v2/lato-yellow.png" alt="Buy me a coffee"></a>
+</p>
+
+> ## ⚠️ 原作者已删库，这里是最后一版的保存
+>
+> 上游 `rakanki911/DLSS5-Swapper` 与作者账号 **已从 GitHub 删除**（现均返回 404）。本仓库保存的是原作者 **Rakan Alkhaldi** 发布的**最后一个版本 2.2.9**，在其基础上**只做了一件事：把界面汉化补到 100%**。功能、逻辑、依赖与行为**一律未改**，与作者最后一版完全一致。
+>
+> 正因如此，**它不只为中文用户准备**：任何语言的用户都可以把它当作原作者 v2.2.9 的一份存档来用，界面语言可在设置中切换（内置 38 种语言）。英文使用者请见 [README.en.md](README.en.md)。
+
+<p align="center">
+  <img src="docs/screenshots/01-home.png" alt="首页" width="100%">
 </p>
 
 ## 下载
 
-[**Windows 安装版**](https://github.com/rakanki911/DLSS5-Swapper/releases/latest) ·
-[**便携版**](https://github.com/rakanki911/DLSS5-Swapper/releases/latest) ·
-[校验和](https://github.com/rakanki911/DLSS5-Swapper/releases/latest)
+[**Windows 安装版**](https://github.com/CBEdwin/DLSS5-Swapper-zh-CN/releases/latest) ·
+[**便携版**](https://github.com/CBEdwin/DLSS5-Swapper-zh-CN/releases/latest) ·
+[校验和](https://github.com/CBEdwin/DLSS5-Swapper-zh-CN/releases/latest)
 
-两者都在最新 Release 页面，同目录下附有 `SHA256SUMS.txt`。
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/rakanki911/DLSS5-Swapper/7415065e5c5437441d0e0b0a0362d0ada6d86e15/docs/screenshots/01-home.png" alt="首页" width="100%">
-</p>
+两者都在本仓库的 Release 页面，同目录下附有 `SHA256SUMS.txt`。
 
 ## 功能
 
@@ -56,16 +60,10 @@
 
 | | |
 |---|---|
-| **安装程序在打开前就崩溃** | 部分机器上安装程序会立刻以 `0xc0000005` 退出，无窗口、无提示，而便携版一切正常。安装框架读取 Windows 给出的路径时越界了。已在上游修复，本版本用的就是修好的版本（[#344]） |
-| **文件还在游戏里，还原原文件却失效了** | 一次完成的还原会把备份记录改名归档，而所有判断「这个游戏是否装了东西」的逻辑只读当前那条记录。现在程序会找出文件仍在游戏里的最新一条已归档记录，并从同一份备份还原（[#325]） |
-| **dgVoodoo2 被杀毒软件报毒** | 上游发布 2.87.5 正是因为杀毒引擎会报 2.87.4，而程序此前锁定的是 2.87.4（[#390]） |
-| **被包装过的 DirectX 8/9 游戏里 ReShade 完全不启动** | 在 dgVoodoo 内部，游戏其实是一个 DirectX 11 程序，而部分环境只会加载 `d3d11.dll`。现在这些游戏也会提供 **ReShade file** 选项（[#343]、[#374]） |
-
-[#325]: https://github.com/rakanki911/DLSS5-Swapper/issues/325
-[#343]: https://github.com/rakanki911/DLSS5-Swapper/issues/343
-[#344]: https://github.com/rakanki911/DLSS5-Swapper/issues/344
-[#374]: https://github.com/rakanki911/DLSS5-Swapper/issues/374
-[#390]: https://github.com/rakanki911/DLSS5-Swapper/issues/390
+| **安装程序在打开前就崩溃** | 部分机器上安装程序会立刻以 `0xc0000005` 退出，无窗口、无提示，而便携版一切正常。安装框架读取 Windows 给出的路径时越界了。已在上游修复，本版本用的就是修好的版本（原上游问题 #344） |
+| **文件还在游戏里，还原原文件却失效了** | 一次完成的还原会把备份记录改名归档，而所有判断「这个游戏是否装了东西」的逻辑只读当前那条记录。现在程序会找出文件仍在游戏里的最新一条已归档记录，并从同一份备份还原（原上游问题 #325） |
+| **dgVoodoo2 被杀毒软件报毒** | 上游发布 2.87.5 正是因为杀毒引擎会报 2.87.4，而程序此前锁定的是 2.87.4（原上游问题 #390） |
+| **被包装过的 DirectX 8/9 游戏里 ReShade 完全不启动** | 在 dgVoodoo 内部，游戏其实是一个 DirectX 11 程序，而部分环境只会加载 `d3d11.dll`。现在这些游戏也会提供 **ReShade file** 选项（原上游问题 #343、#374） |
 
 ## 更早的版本
 
@@ -83,7 +81,7 @@
 | **2.2.1** | [叠加层页](docs/releases/v2.2.1.md) —— 可以自己写的主题，以及选之前先跑一遍的预览 |
 | **2.2.0** | [可选的 OptiScaler 与更聪明的游戏库](docs/releases/v2.2.0.md) |
 
-每个版本也都在 [Release 页面](https://github.com/rakanki911/DLSS5-Swapper/releases)上带有自己的说明与下载。
+每个版本也都在 [Release 页面](https://github.com/CBEdwin/DLSS5-Swapper-zh-CN/releases)上带有自己的说明与下载。
 
 ## 兼容性
 
@@ -141,9 +139,9 @@ OptiScaler 的 DX11/Vulkan 路径默认使用 DX12 桥接并以 FSR 输出。
 
 ## 截图
 
-<p><img src="https://raw.githubusercontent.com/rakanki911/DLSS5-Swapper/7415065e5c5437441d0e0b0a0362d0ada6d86e15/docs/screenshots/02-games.png" alt="游戏列表" width="100%"></p>
-<p><img src="https://raw.githubusercontent.com/rakanki911/DLSS5-Swapper/7415065e5c5437441d0e0b0a0362d0ada6d86e15/docs/screenshots/03-library.png" alt="游戏库" width="100%"></p>
-<p><img src="https://raw.githubusercontent.com/rakanki911/DLSS5-Swapper/7415065e5c5437441d0e0b0a0362d0ada6d86e15/docs/screenshots/04-game.png" alt="游戏详情" width="100%"></p>
+<p><img src="docs/screenshots/02-games.png" alt="游戏列表" width="100%"></p>
+<p><img src="docs/screenshots/03-library.png" alt="游戏库" width="100%"></p>
+<p><img src="docs/screenshots/04-game.png" alt="游戏详情" width="100%"></p>
 <p><img src="docs/screenshots/07-overlay.png" alt="叠加层页，含 Emerald、Azure 与 Amethyst 三套主题" width="100%"></p>
 
 ## 安装之前
@@ -160,12 +158,8 @@ OptiScaler 的 DX11/Vulkan 路径默认使用 DX12 桥接并以 FSR 输出。
 - 程序使用一个随机的安装 ID 来防止重复投票，服务器只保存它的哈希。**移除我的社区活动** 会隐藏你的全部报告与回复，并重置你的公开社区资料。
 - 仅限所有者使用的管理员访问码由社区服务器校验，并在本地以 Windows 加密存储保存。它永远不会写入公开资料或普通的社区设置文件。
 
-## 支持
-
-DLSS 5 Swapper 免费并以 MIT 协议开源。如果它帮你省下了一晚上的折腾，可以请我喝杯咖啡。
-
-<p><a href="https://buymeacoffee.com/rakanki911"><img height="44" src="https://cdn.buymeacoffee.com/buttons/v2/lato-yellow.png" alt="Buy me a coffee"></a></p>
-
 ---
 
 由 **Rakan Alkhaldi** 制作 · MIT · [第三方组件与许可](THIRD_PARTY_NOTICES.md)
+
+本仓库仅保存其 v2.2.9 最后一版并补全简体中文翻译，不改动功能。原作者账号与上游仓库均已删除，如有版权问题请联系本仓库删除。
