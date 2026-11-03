@@ -5,7 +5,11 @@
 <h1 align="center">DLSS 5 Swapper</h1>
 
 <p align="center">
-  Install and manage DLSS 5 Neural Rendering for compatible games and emulators.
+  为兼容的游戏与模拟器安装并管理 DLSS 5 神经渲染。
+</p>
+
+<p align="center">
+  <a href="README.en.md">English</a> · 简体中文
 </p>
 
 <p align="center">
@@ -17,45 +21,45 @@
   <a href="https://buymeacoffee.com/rakanki911"><img height="20" src="https://cdn.buymeacoffee.com/buttons/v2/lato-yellow.png" alt="Buy me a coffee"></a>
 </p>
 
-## Download
+## 下载
 
-[**Windows Installer**](https://github.com/rakanki911/DLSS5-Swapper/releases/latest) ·
-[**Portable**](https://github.com/rakanki911/DLSS5-Swapper/releases/latest) ·
-[Checksums](https://github.com/rakanki911/DLSS5-Swapper/releases/latest)
+[**Windows 安装版**](https://github.com/rakanki911/DLSS5-Swapper/releases/latest) ·
+[**便携版**](https://github.com/rakanki911/DLSS5-Swapper/releases/latest) ·
+[校验和](https://github.com/rakanki911/DLSS5-Swapper/releases/latest)
 
-Both are on the latest release page, with `SHA256SUMS.txt` beside them.
+两者都在最新 Release 页面，同目录下附有 `SHA256SUMS.txt`。
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/rakanki911/DLSS5-Swapper/7415065e5c5437441d0e0b0a0362d0ada6d86e15/docs/screenshots/01-home.png" alt="Home" width="100%">
+  <img src="https://raw.githubusercontent.com/rakanki911/DLSS5-Swapper/7415065e5c5437441d0e0b0a0362d0ada6d86e15/docs/screenshots/01-home.png" alt="首页" width="100%">
 </p>
 
-## Features
+## 功能
 
-- **Easy installation:** native DLSS games, or compatible non-DLSS games through DLSS5-Feeder.
-- **Your library:** Steam, Epic, GOG, modern Xbox Game Pass folders, and manually added games/emulators.
-- **Search and filters:** combine title, graphics API, DLSS status/version and add-ons; click counters to filter.
-- **Flexible layout:** group by store or show everything in one list, with game artwork and light/dark themes.
-- **Controlled scanning:** full-drive scanning is **off by default**. Added folders still scan normally; enable all-drive discovery or remove scan folders in Settings.
-- **Right-click shortcuts:** open/copy folder, rescan, change cover, restore originals or hide a game.
-- **Backups and History:** restore original files, keep installation records, and copy History/activity/install logs.
-- **Save diagnostics:** one file with the install log, the game’s own ReShade and Feeder logs, the manifest and your driver - shown to you before it is written, and ready to attach to a report.
-- **In-game overlay:** press **F8** to open the app's own panel over the running game and move the real DLSS Neural Rendering sliders while you play. Supports the **DLSS5-Feeder** and **RenoDX** routes only, and it knows both RenoDX builds the app ships (6.5.3 and the older 4.7). Drag the grip in its bottom right corner to resize it; each game remembers its own size.
-- **Rendering API override:** optional, per game, with **Automatic** as the default; detection is never overwritten.
-- **Custom add-ons:** the Add-ons page remains available alongside the integrated installation routes.
-- **Multipass neural rendering:** an installation route that runs the neural pass up to ten times per frame, on DX12, DX11 and 64-bit DX9 - including games with no DLSS of their own.
-- **Community (BETA):** read what worked for other people, narrowed to the games on your PC and the graphics card in it, leave your own report, and talk it over underneath it. Opt-in, and everything you leave can be edited, deleted or withdrawn.
-- **Community chat:** one live room for everyone using the app - screenshots, game cards, replies with mentions and reactions.
+- **安装简单：** 原生支持 DLSS 的游戏，或通过 DLSS5-Feeder 接入兼容的非 DLSS 游戏。
+- **游戏库：** Steam、Epic、GOG、新版 Xbox Game Pass 目录，以及手动添加的游戏/模拟器。
+- **搜索与筛选：** 标题、图形 API、DLSS 状态/版本和插件可组合筛选；点击计数即可筛选。
+- **灵活布局：** 按商店分组或全部平铺为一张列表，带游戏封面与浅色/深色主题。
+- **可控扫描：** 全盘扫描**默认关闭**。已添加的目录仍会正常扫描；可在设置里开启全盘发现，或移除扫描目录。
+- **右键快捷操作：** 打开/复制目录、重新扫描、更换封面、还原原文件或隐藏游戏。
+- **备份与历史：** 还原原始文件、保留安装记录、复制历史/活动/安装日志。
+- **保存诊断：** 一个文件打包安装日志、游戏自身的 ReShade 与 Feeder 日志、清单和你的驱动信息 —— 写入前先给你过目，可直接附到反馈里。
+- **游戏内叠加层：** 按 **F8** 在运行中的游戏上呼出本程序自己的面板，边玩边调真实的 DLSS 神经渲染滑块。仅支持 **DLSS5-Feeder** 与 **RenoDX** 两条路径，并且同时认得本程序附带的两个 RenoDX 版本（6.5.3 与更旧的 4.7）。拖住右下角把手可调整大小；每个游戏会各自记住自己的尺寸。
+- **渲染 API 覆盖：** 可选、按游戏设置，默认 **自动**；自动检测的结果永远不会被覆盖。
+- **自定义插件：** 在集成安装路径之外，插件页始终可用。
+- **多通道神经渲染：** 一种安装路径，在 DX12、DX11 和 64 位 DX9 上每帧最多执行十次神经渲染 —— 包括本身没有 DLSS 的游戏。
+- **社区（BETA）：** 看看别人的实测结果，范围收窄到你机器上的游戏和你用的显卡；提交你自己的报告，并在下方讨论。需主动开启，你留下的内容都可以编辑、删除或撤回。
+- **社区聊天：** 所有使用者共用的一个实时聊天室 —— 截图、游戏卡片、带 @ 提及与表情回应。
 
-## New in 2.2.9
+## 2.2.9 新增
 
-Four faults from the tracker, fixed at the cause. Every one of them was reported by somebody in it.
+来自问题追踪器的四个故障，全部从根因上修复。每一个都有人在追踪器里报告过。
 
 | | |
 |---|---|
-| **The installer crashed before it opened** | On some machines the setup died instantly with `0xc0000005`, no window and no prompt, while the portable build was fine. The installer framework read past the end of a path Windows handed it. Fixed upstream, and this release is built with the fixed version ([#344]) |
-| **Restore originals went dead with the files still in the game** | A finished restore renames the backup record aside, and everything that decides whether a game has anything installed read only the live one. The app now offers the newest retired record whose files are still in the game, and restores from the same backups ([#325]) |
-| **dgVoodoo2 flagged by antivirus** | Upstream released 2.87.5 precisely because engines flag 2.87.4, and the app was pinned to 2.87.4 ([#390]) |
-| **ReShade never started in a wrapped DirectX 8/9 game** | Inside dgVoodoo the game is a DirectX 11 one, and some setups load only `d3d11.dll`. The **ReShade file** choice is offered for these games now ([#343], [#374]) |
+| **安装程序在打开前就崩溃** | 部分机器上安装程序会立刻以 `0xc0000005` 退出，无窗口、无提示，而便携版一切正常。安装框架读取 Windows 给出的路径时越界了。已在上游修复，本版本用的就是修好的版本（[#344]） |
+| **文件还在游戏里，还原原文件却失效了** | 一次完成的还原会把备份记录改名归档，而所有判断「这个游戏是否装了东西」的逻辑只读当前那条记录。现在程序会找出文件仍在游戏里的最新一条已归档记录，并从同一份备份还原（[#325]） |
+| **dgVoodoo2 被杀毒软件报毒** | 上游发布 2.87.5 正是因为杀毒引擎会报 2.87.4，而程序此前锁定的是 2.87.4（[#390]） |
+| **被包装过的 DirectX 8/9 游戏里 ReShade 完全不启动** | 在 dgVoodoo 内部，游戏其实是一个 DirectX 11 程序，而部分环境只会加载 `d3d11.dll`。现在这些游戏也会提供 **ReShade file** 选项（[#343]、[#374]） |
 
 [#325]: https://github.com/rakanki911/DLSS5-Swapper/issues/325
 [#343]: https://github.com/rakanki911/DLSS5-Swapper/issues/343
@@ -63,48 +67,47 @@ Four faults from the tracker, fixed at the cause. Every one of them was reported
 [#374]: https://github.com/rakanki911/DLSS5-Swapper/issues/374
 [#390]: https://github.com/rakanki911/DLSS5-Swapper/issues/390
 
-## Earlier releases
+## 更早的版本
 
-Each one is written up in full - what broke, why, and what was changed.
+每一版都有完整说明 —— 坏了什么、为什么、改了什么。
 
 | | |
 |---|---|
-| **2.2.8** | [A second theme, and every add-on brought current](docs/releases/v2.2.8.md) - a whole second design, DLSS5-Feeder 1.17.0, RenoDX 6.5.3, a second OptiScaler build per game, and ten faults fixed |
-| **2.2.7** | [Find the reviews that matter to you](docs/releases/v2.2.7.md) - filter by your card, reviews for your games, notifications, and eight faults fixed |
-| **2.2.6** | [Community chat](docs/releases/v2.2.6.md) - one live room for everyone, and the right add-on on every route |
-| **2.2.5** | [Multipass](docs/releases/v2.2.5.md) - the neural pass up to ten times per frame, plus nine faults fixed at the cause |
-| **2.2.4** | [The Community page](docs/releases/v2.2.4.md) - compare notes with everyone else, plus eight faults fixed at the cause |
-| **2.2.3** | [Six reported faults, fixed at the cause](docs/releases/v2.2.3.md) - OptiScaler on older cards, a game's own stale shader compiler, the overlay on a scaled display |
-| **2.2.2** | [The reports people sent](docs/releases/v2.2.2.md) - games it could not find, installs it refused, the overlay's own page |
-| **2.2.1** | [The Overlay page](docs/releases/v2.2.1.md) - themes you can write yourself, and a preview that runs before you choose |
-| **2.2.0** | [Optional OptiScaler and a smarter library](docs/releases/v2.2.0.md) |
+| **2.2.8** | [第二套主题，所有插件同步到最新](docs/releases/v2.2.8.md) —— 一整套全新设计、DLSS5-Feeder 1.17.0、RenoDX 6.5.3、每个游戏第二份 OptiScaler 构建，并修复十个故障 |
+| **2.2.7** | [找到与你相关的那部分评测](docs/releases/v2.2.7.md) —— 按你的显卡筛选、只看你游戏库的评测、通知，并修复八个故障 |
+| **2.2.6** | [社区聊天](docs/releases/v2.2.6.md) —— 所有人共用一个实时聊天室，每条路径都配上正确的插件 |
+| **2.2.5** | [多通道](docs/releases/v2.2.5.md) —— 每帧最多十次神经渲染，另从根因修复九个故障 |
+| **2.2.4** | [社区页](docs/releases/v2.2.4.md) —— 和其他人交流实测结果，另从根因修复八个故障 |
+| **2.2.3** | [六个已报告的故障，从根因修复](docs/releases/v2.2.3.md) —— 老显卡上的 OptiScaler、游戏自带的过期着色器编译器、缩放显示下的叠加层 |
+| **2.2.2** | [大家发来的报告](docs/releases/v2.2.2.md) —— 找不到的游戏、被拒绝的安装、叠加层自己的页面 |
+| **2.2.1** | [叠加层页](docs/releases/v2.2.1.md) —— 可以自己写的主题，以及选之前先跑一遍的预览 |
+| **2.2.0** | [可选的 OptiScaler 与更聪明的游戏库](docs/releases/v2.2.0.md) |
 
-Every release also carries its own notes and downloads on the
-[releases page](https://github.com/rakanki911/DLSS5-Swapper/releases).
+每个版本也都在 [Release 页面](https://github.com/rakanki911/DLSS5-Swapper/releases)上带有自己的说明与下载。
 
-## Compatibility
+## 兼容性
 
-| Category | Support |
+| 类别 | 支持情况 |
 | --- | --- |
-| **System** | Windows 10/11 x64; compatible 32-bit and 64-bit games |
-| **ReShade / Feeder GPUs** | RTX 20 / 30 / 40 / 50; older-series support is reported by the bundled modified runtime's author |
-| **OptiScaler GPUs** | 64-bit games with native DLSS enabled. The bundled neural model runs on **Blackwell** (RTX 50 / RTX PRO Blackwell); an older card needs a modded `nvngx_dlssnr.dll` you supply, which is never overwritten. Driver **616.56** or newer |
-| **DirectX 12** | Native DLSS, Feeder, or eligible OptiScaler games |
-| **DirectX 11** | Feeder for 32/64-bit games; eligible OptiScaler games |
-| **DirectX 9 / 8** | DX9: 32/64-bit; DX8: 32-bit, through dgVoodoo2 → DX11 → Feeder |
-| **Vulkan / OpenGL** | ReShade/Feeder; eligible Vulkan games can also use OptiScaler |
-| **DirectX 10** | Not directly supported by Feeder; choose DX11 when available |
-| **In-game overlay** | 64-bit DirectX 11 / 12 games with ReShade add-on support; **DLSS5-Feeder and RenoDX only** |
+| **系统** | Windows 10/11 x64；兼容 32 位与 64 位游戏 |
+| **ReShade / Feeder 显卡** | RTX 20 / 30 / 40 / 50；更早系列的支持情况由随附的修改版运行时作者给出 |
+| **OptiScaler 显卡** | 已启用原生 DLSS 的 64 位游戏。随附的神经模型运行于 **Blackwell**（RTX 50 / RTX PRO Blackwell）；更老的显卡需要你自备改版 `nvngx_dlssnr.dll`，该文件永远不会被覆盖。驱动需 **616.56** 或更新 |
+| **DirectX 12** | 原生 DLSS、Feeder，或符合条件的 OptiScaler 游戏 |
+| **DirectX 11** | 32/64 位游戏走 Feeder；符合条件的 OptiScaler 游戏 |
+| **DirectX 9 / 8** | DX9：32/64 位；DX8：32 位，经 dgVoodoo2 → DX11 → Feeder |
+| **Vulkan / OpenGL** | ReShade/Feeder；符合条件的 Vulkan 游戏也可使用 OptiScaler |
+| **DirectX 10** | Feeder 不直接支持；有 DX11 模式时请选 DX11 |
+| **游戏内叠加层** | 支持 ReShade 插件接口的 64 位 DirectX 11 / 12 游戏；**仅限 DLSS5-Feeder 与 RenoDX** |
 
-OptiScaler's DX11/Vulkan path uses a DX12 bridge with FSR output by default.
-For Vulkan backend changes, **restore originals first**. OptiScaler is not the emulator/non-DLSS route.
+OptiScaler 的 DX11/Vulkan 路径默认使用 DX12 桥接并以 FSR 输出。
+如需更改 Vulkan 后端，**请先还原原文件**。OptiScaler 不是模拟器/非 DLSS 游戏的那条路径。
 
-## Emulators
+## 模拟器
 
-Select the emulator folder and its active renderer, then use **ReShade/Feeder**.
+选择模拟器目录及其当前使用的渲染器，然后用 **ReShade/Feeder**。
 
 <table>
-  <tr><th colspan="3">Emulators</th></tr>
+  <tr><th colspan="3">模拟器</th></tr>
   <tr><td>DuckStation</td><td>PCSX2</td><td>RPCS3</td></tr>
   <tr><td>Dolphin</td><td>PPSSPP</td><td>Xenia</td></tr>
   <tr><td>Cemu</td><td>Ryujinx</td><td>yuzu / suyu / Eden / Citron / Sudachi</td></tr>
@@ -114,12 +117,12 @@ Select the emulator folder and its active renderer, then use **ReShade/Feeder**.
   <tr><td>Play!</td><td></td><td></td></tr>
 </table>
 
-Compatibility varies by renderer and game. Xenia HUD correction remains experimental.
+兼容性因渲染器和游戏而异。Xenia 的 HUD 修正仍属实验性功能。
 
-## 38 languages
+## 38 种语言
 
 <table>
-  <tr><th colspan="4">All 38 languages</th></tr>
+  <tr><th colspan="4">全部 38 种语言</th></tr>
   <tr><td>English</td><td>العربية</td><td>简体中文</td><td>繁體中文</td></tr>
   <tr><td>Español</td><td>Português</td><td>Русский</td><td>Deutsch</td></tr>
   <tr><td>Français</td><td>日本語</td><td>한국어</td><td>Italiano</td></tr>
@@ -132,45 +135,37 @@ Compatibility varies by renderer and game. Xenia HUD correction remains experime
   <tr><td>Slovenčina</td><td>Català</td><td></td><td></td></tr>
 </table>
 
-**Arabic, Persian and Urdu support right-to-left layout.**
+**阿拉伯语、波斯语和乌尔都语支持从右到左布局。**
 
 > **简体中文用户注意**：本仓库是独立维护的 v2.2.9 简体中文汉化版（非 fork，不受上游仓库变动影响）。上游的中文语言包实测覆盖率仅 16.5%（界面大量回退为英文），本仓库将其补全至 100%。改动说明、上游同步方式与许可归属详见 [TRANSLATION.zh-CN.md](TRANSLATION.zh-CN.md)。
 
-## Screenshots
+## 截图
 
-<p><img src="https://raw.githubusercontent.com/rakanki911/DLSS5-Swapper/7415065e5c5437441d0e0b0a0362d0ada6d86e15/docs/screenshots/02-games.png" alt="Games" width="100%"></p>
-<p><img src="https://raw.githubusercontent.com/rakanki911/DLSS5-Swapper/7415065e5c5437441d0e0b0a0362d0ada6d86e15/docs/screenshots/03-library.png" alt="Library" width="100%"></p>
-<p><img src="https://raw.githubusercontent.com/rakanki911/DLSS5-Swapper/7415065e5c5437441d0e0b0a0362d0ada6d86e15/docs/screenshots/04-game.png" alt="Game details" width="100%"></p>
-<p><img src="docs/screenshots/07-overlay.png" alt="The Overlay page with the Emerald, Azure and Amethyst themes" width="100%"></p>
+<p><img src="https://raw.githubusercontent.com/rakanki911/DLSS5-Swapper/7415065e5c5437441d0e0b0a0362d0ada6d86e15/docs/screenshots/02-games.png" alt="游戏列表" width="100%"></p>
+<p><img src="https://raw.githubusercontent.com/rakanki911/DLSS5-Swapper/7415065e5c5437441d0e0b0a0362d0ada6d86e15/docs/screenshots/03-library.png" alt="游戏库" width="100%"></p>
+<p><img src="https://raw.githubusercontent.com/rakanki911/DLSS5-Swapper/7415065e5c5437441d0e0b0a0362d0ada6d86e15/docs/screenshots/04-game.png" alt="游戏详情" width="100%"></p>
+<p><img src="docs/screenshots/07-overlay.png" alt="叠加层页，含 Emerald、Azure 与 Amethyst 三套主题" width="100%"></p>
 
-## Before installing
+## 安装之前
 
-- **Anti-cheat:** red warning and optional confirmation, not a blanket block. Injection can cause crashes or account bans; the app never bypasses anti-cheat.
-- **Requirements:** Feeder needs Visual C++ runtimes (x64, plus x86 for 32-bit games). Some components download on first use.
-- **Compatibility is not guaranteed.** Keep backups; existing mods may conflict. Not every reported game crash is fixed.
-- **Linux/Proton:** experimental community source only; no Linux binaries in this release.
+- **反作弊：** 红色警告加可选确认，而不是一刀切拦截。注入可能导致崩溃或封号；本程序不会绕过反作弊。
+- **运行要求：** Feeder 需要 Visual C++ 运行库（x64，32 位游戏另需 x86）。部分组件在首次使用时下载。
+- **不保证兼容。** 请保留备份；已有 Mod 可能冲突。并非每一个被报告的崩溃都已修复。
+- **Linux/Proton：** 仅有实验性的社区源码；本版本不含 Linux 二进制。
 
-## Community and privacy
+## 社区与隐私
 
-- Opening the Community page downloads public game reports. A live connection
-  count is held only in memory; no connection identifiers are stored.
-- A report is sent only after you review and submit the fields shown in its
-  dialog: game, route, rendering API, result, optional comment, GPU, driver,
-  CPU, OS and app version.
-- The app uses a random install ID to prevent duplicate votes. The server stores
-  only its hash. **Remove my community activity** hides all your reports and
-  replies and resets your public community profile.
-- The owner-only administrator access code is verified by the community server
-  and stored locally with Windows encrypted storage. It is never written to the
-  public profile or the normal community settings file.
+- 打开社区页会下载公开的游戏报告。在线连接数只保存在内存中，不存储任何连接标识。
+- 只有在你查看并提交对话框中的字段后，报告才会发出：游戏、路径、渲染 API、结果、可选评论、GPU、驱动、CPU、系统与应用版本。
+- 程序使用一个随机的安装 ID 来防止重复投票，服务器只保存它的哈希。**移除我的社区活动** 会隐藏你的全部报告与回复，并重置你的公开社区资料。
+- 仅限所有者使用的管理员访问码由社区服务器校验，并在本地以 Windows 加密存储保存。它永远不会写入公开资料或普通的社区设置文件。
 
-## Support
+## 支持
 
-DLSS 5 Swapper is free and MIT licensed. If it saved you an evening of
-fiddling, you can buy me a coffee.
+DLSS 5 Swapper 免费并以 MIT 协议开源。如果它帮你省下了一晚上的折腾，可以请我喝杯咖啡。
 
 <p><a href="https://buymeacoffee.com/rakanki911"><img height="44" src="https://cdn.buymeacoffee.com/buttons/v2/lato-yellow.png" alt="Buy me a coffee"></a></p>
 
 ---
 
-Built by **Rakan Alkhaldi** · MIT · [Third-party credits and licences](THIRD_PARTY_NOTICES.md)
+由 **Rakan Alkhaldi** 制作 · MIT · [第三方组件与许可](THIRD_PARTY_NOTICES.md)
