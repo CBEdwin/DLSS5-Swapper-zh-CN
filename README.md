@@ -13,7 +13,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/CBEdwin/DLSS5-Swapper-zh-CN/releases"><img src="https://img.shields.io/badge/version-2.2.9-8fd400" alt="Version 2.2.9"></a>
+  <a href="https://github.com/CBEdwin/DLSS5-Swapper-zh-CN/releases/tag/v2.2.9"><img src="https://img.shields.io/badge/version-2.2.9-8fd400" alt="Version 2.2.9"></a>
   <a href="https://github.com/CBEdwin/DLSS5-Swapper-zh-CN/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-8fd400" alt="MIT license"></a>
   <img src="https://img.shields.io/badge/Windows-10%20%2F%2011-8fd400" alt="Windows 10/11">
   <img src="https://img.shields.io/badge/languages-38-8fd400" alt="38 languages">
@@ -31,11 +31,10 @@
 
 ## 下载
 
-[**Windows 安装版**](https://github.com/CBEdwin/DLSS5-Swapper-zh-CN/releases/latest) ·
-[**便携版**](https://github.com/CBEdwin/DLSS5-Swapper-zh-CN/releases/latest) ·
-[校验和](https://github.com/CBEdwin/DLSS5-Swapper-zh-CN/releases/latest)
+[**下载便携版**](https://github.com/CBEdwin/DLSS5-Swapper-zh-CN/releases/download/v2.2.9/DLSS5-Swapper-2.2.9-portable.exe) ·
+[**Release 说明与校验和**](https://github.com/CBEdwin/DLSS5-Swapper-zh-CN/releases/tag/v2.2.9)
 
-两者都在本仓库的 Release 页面，同目录下附有 `SHA256SUMS.txt`。
+便携版免安装，下载后双击即可运行，约 236 MiB。本存档只提供便携版——原作者没有留下安装版安装程序的副本，无法重建。SHA-256 校验值写在 Release 说明里。
 
 ## 功能
 

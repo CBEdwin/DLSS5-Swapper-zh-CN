@@ -13,7 +13,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/CBEdwin/DLSS5-Swapper-zh-CN/releases"><img src="https://img.shields.io/badge/version-2.2.9-8fd400" alt="Version 2.2.9"></a>
+  <a href="https://github.com/CBEdwin/DLSS5-Swapper-zh-CN/releases/tag/v2.2.9"><img src="https://img.shields.io/badge/version-2.2.9-8fd400" alt="Version 2.2.9"></a>
   <a href="https://github.com/CBEdwin/DLSS5-Swapper-zh-CN/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-8fd400" alt="MIT license"></a>
   <img src="https://img.shields.io/badge/Windows-10%20%2F%2011-8fd400" alt="Windows 10/11">
   <img src="https://img.shields.io/badge/languages-38-8fd400" alt="38 languages">
@@ -31,11 +31,10 @@
 
 ## Download
 
-[**Windows Installer**](https://github.com/CBEdwin/DLSS5-Swapper-zh-CN/releases/latest) ·
-[**Portable**](https://github.com/CBEdwin/DLSS5-Swapper-zh-CN/releases/latest) ·
-[Checksums](https://github.com/CBEdwin/DLSS5-Swapper-zh-CN/releases/latest)
+[**Download the portable build**](https://github.com/CBEdwin/DLSS5-Swapper-zh-CN/releases/download/v2.2.9/DLSS5-Swapper-2.2.9-portable.exe) ·
+[**Release notes and checksum**](https://github.com/CBEdwin/DLSS5-Swapper-zh-CN/releases/tag/v2.2.9)
 
-Both are on this repository's release page, with `SHA256SUMS.txt` beside them.
+The portable build needs no installation — download it and run it, about 236 MiB. This preservation only ships the portable build: no copy of the original installer survived, so it cannot be rebuilt. The SHA-256 is in the release notes.
 
 ## Features
 

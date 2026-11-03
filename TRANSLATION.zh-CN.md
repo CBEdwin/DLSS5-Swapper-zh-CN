@@ -128,17 +128,20 @@ const assertLocalized = (haystack, key) => {
 
 ## 获取可运行版本
 
-本仓库**只包含源码**，不含任何二进制文件。原因：
+本仓库的 **Git 仓库里只包含源码**，不含任何二进制文件。原因：
 
 - `nvngx_dlssnr.dll` 等 NVIDIA 运行时为 NVIDIA 专有资产，**不可再分发**，其自带的 `.license.txt` 即声明独立授权
 - 主程序 `DLSS 5 Swapper.exe` 体积远超 GitHub 单文件100MB 上限
+- 便携版单文件约 236 MiB，放在源码树里会让每次 clone 都变慢
 
-请从官方渠道获取可运行版本，并自行比对 SHA-256：
+**可运行版本改放在本仓库的 Release 里**（原作者账号与上游仓库均已删除，原下载渠道已不存在）：
 
-- 安装版 / 便携版：`https://github.com/CBEdwin/DLSS5-Swapper-zh-CN/releases`
-- 校验和：`SHA256SUMS.txt`
+- 便携版：`https://github.com/CBEdwin/DLSS5-Swapper-zh-CN/releases/download/v2.2.9/DLSS5-Swapper-2.2.9-portable.exe`
+- Release 说明与校验和：`https://github.com/CBEdwin/DLSS5-Swapper-zh-CN/releases/tag/v2.2.9`
 
-将本仓库的汉化改动应用到便携版源码后，可自行用 `npm run build:portable` 重新构建。
+该便携版由本仓库源码（v2.2.9）构建，界面汉化已在其中。原作未留下安装版安装程序的副本，因此本存档只提供便携版。
+
+若希望自己从源码重新构建，可自行执行 `npm run build:portable`（需要能访问上游 pinned 组件与 ReShade 安装程序，见 `scripts/collect-payload.js`）。
 
 ## 许可与归属
 
